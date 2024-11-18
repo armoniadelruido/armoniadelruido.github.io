@@ -21,7 +21,7 @@ Si deseas agregar bloques de código, usa el siguiente formato:
 # Este es un bloque de comandos en Bash
 sudo apt update
 sudo apt install nginx
-
+ds
 
 ### Explicación de los Campos del Front Matter
 - **title**: El título del post que aparecerá en la página.
