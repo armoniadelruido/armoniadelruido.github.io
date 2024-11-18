@@ -35,7 +35,11 @@ Guarda los cambios en el archivo `nombre-del-post.md`.
 ### 4. Haz Commit y Push de los Cambios
 Para que el nuevo post aparezca en tu sitio en GitLab Pages, haz commit y push de los cambios:
 
+### 4. Haz Commit y Push de los Cambios
+```
 ```bash
 git add content/posts/nombre-del-post.md
 git commit -m "Agregar nuevo post: Título del Nuevo Post"
 git push origin main
+```
+ds
