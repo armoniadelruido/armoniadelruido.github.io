@@ -2,7 +2,7 @@
 title: "Título del Nuevo Post"
 date: 2024-11-18 18:31:00
 categories: [Inicio]
-tags: ["Etiqueta1", "Etiqueta2"]
+tags: [Etiqueta1, Etiqueta2]
 ---
 
 # Título del Nuevo Post
