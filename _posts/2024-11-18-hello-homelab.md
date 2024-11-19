@@ -1,5 +1,5 @@
 ---
-title: "Título del Nuevo Post"
+title: Hola, Homelab
 date: 2024-11-18 18:31:00
 categories: [Inicio]
 tags: [Etiqueta1, Etiqueta2]
