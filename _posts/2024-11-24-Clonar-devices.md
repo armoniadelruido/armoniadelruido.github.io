@@ -74,12 +74,21 @@ timestamp para 500gb es de 240 minutos
 
 ```bash
 root@pihole:~# dd if=/dev/mmcblk0 of=/dev/mmcblk2 bs=1M status=progress
-394264576 bytes (394 MB, 376 MiB) copied, 28 s, 14.1 MB/s
+15631122432 bytes (16 GB, 15 GiB) copied, 1302 s, 12.0 MB/s
+15634268160 bytes (16 GB, 16 GiB) copied, 1313.87 s, 11.9 MB/s
+root@pihole:~# 
 ```
 
-Y ahora cuando acabe solo nos falta decirle que arranque desde la nand en lugar de la ssd:
+Y ahora cuando acabe solo nos falta decirle que arranque desde la nand en lugar de la ssd.
+En este caso, mi pihole esta en una placa orange, y no en una raspberry, asi que lo hacemos con armbian-config
+
+![My helpful screenshot](/assets/images/clonar-devices/armbian-config1.png)
+![My helpful screenshot](/assets/images/clonar-devices/armbian-config2.png)
+![My helpful screenshot](/assets/images/clonar-devices/armbian-config3.png)
+
 ```bash
 
 ```
 
-En este caso, mi pihole esta en una placa orange, y no en una raspberry, asi que lo hacemos con armbian-config
+
+
