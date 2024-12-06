@@ -3,10 +3,14 @@
 # Import the theme
 theme: jekyll-theme-chirpy
 
+plugins:
+  - jekyll-seo-tag
+
+
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
-lang: en
+lang: es
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
 timezone: Europe/Madrid
@@ -14,9 +18,9 @@ timezone: Europe/Madrid
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Chirpy1 # the main title
+title: Armoniadelruido # the main title
 
-tagline: A text-focused Jekyll NOSE # it will display as the subtitle
+tagline: Un blog para tener mis notas # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Un blog para tener mis notas.
@@ -29,17 +33,17 @@ github:
   username: armoniadelruido # change to your GitHub username
 
 twitter:
-  username: twitter_username # change to your Twitter username
+  username: armoniadelruido # change to your Twitter username
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: your_full_name
+  name: Armoniadelruido
   email: example@domain.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your Twitter homepage
-    - https://github.com/username # change to your GitHub homepage
+    - https://twitter.com/armoniadelruido # change to your Twitter homepage
+    - https://github.com/code.armoniadelruido # change to your GitHub homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username

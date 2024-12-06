@@ -1,0 +1,24 @@
+Me llevo la web de un equipo a otro:
+
+Como hice este site, en local:
+Falta la parte de los repos, pero ya la pondré.
+
+cargo la web en local:
+cd /home/alexaid/Documentos/gitlab_web/armoniadelruido.github.io
+
+
+apt-get install -y ruby-full build-essential zlib1g-dev git
+
+echo '# Ruby Gems en el directorio de usuario' >> ~/.bashrc
+echo 'export GEM_HOME="$HOME/.gems"' >> ~/.bashrc
+echo 'export PATH="$HOME/.gems/bin:$PATH"' >> ~/.bashrc
+ source ~/.bashrc
+
+gem install bundler
+bundler -v
+cd /Documentos/gitlab_web/armoniadelruido.github.io/
+rm Gemfile.lock
+bundle install
+bundle exec jekyll serve
+
+

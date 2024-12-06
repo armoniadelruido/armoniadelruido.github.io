@@ -1,25 +1,23 @@
 ---
-title: Certificados Multidominio
-date: 2024-11-19 17:31:00
-categories: [Inicio]
-tags: [Certificados, ssl]
+title: Certificados openssl
+date: 2024-11-19 0:31:00
+categories: [Certificados]
+tags: [Certificados, ssl, https, apache, openssl]
 ---
-# Crear un certificado Multidominio
+# Crear un certificado Multidominio, o también SAN.
 
-Algunas veces tenemos que crear un certificado para varios dominios, esta es la manera en la que lo hago:
+Algunas veces tenemos que crear un certificado para varios dominios, o simplemente para poner otro CN en el certificado. 
+Los navegadores marcaran como inseguro un site, si un certificado no tiene Subject Alternative Name (SAN).
 
-## Subtítulo
 
-Más contenido aquí...
+## Vamos al lío.
 
-### Código
-
-Genero llave
+Generamos par de llaves.
 ```bash
 openssl genrsa -des3 -out servidor.key 4096
 ```
 
-pongo passphrase y hago que no la pida mas
+Ponemos passphrase y que no la pida mas.
 ```bash
 mv servidor.key servidor.key.old
 openssl rsa -in servidor.key.old -out servidor.key
@@ -46,18 +44,4 @@ openssl req -x509 -nodes -newkey rsa:2048 \
   -out www.example.com.pem \
   -subj '/C=XX/ST=XXXX/L=XXXX/O=XXXX/OU=XXXX/CN=www.example.com/emailAddress=postmaster@example.com'
 ```
-
-chuleta copy-paste
-
-```bash
-cp /etc/ssl/openssl.cnf /tmp
-echo '[ subject_alt_name ]' >> /tmp/openssl.cnf
-echo 'subjectAltName = DNS:alegalu.sytes.com, DNS:devnullteamcloud.sytes.com' >> /tmp/openssl.cnf
-openssl genrsa -des3 -out multidom.key rsa:4096 \
-  -config /tmp/openssl.cnf \
-  -extensions subject_alt_name \
-  -keyout multidom.key \
-  -out multidom.pem \
-  -subj '/C=AD/ST=XXXX/L=XXXX/O=XXXX/OU=XXXX/CN=alegalu.sytes.com/emailAddress=postmaster@example.com'
-  ```
-  
+Y esto sería todo, ya tendríamos un certificado listo para usar con dos CNs.
