@@ -82,9 +82,9 @@ root@pihole:~#
 Y ahora cuando acabe solo nos falta decirle que arranque desde la nand en lugar de la ssd.
 En este caso, mi pihole esta en una placa orange, y no en una raspberry, asi que lo hacemos con armbian-config
 
-![My helpful screenshot](/assets/images/clonar-devices/armbian-config1.png)
-![My helpful screenshot](/assets/images/clonar-devices/armbian-config2.png)
-![My helpful screenshot](/assets/images/clonar-devices/armbian-config3.png)
+![My helpful screenshot](/assets/armbian-config1.png)
+![My helpful screenshot](/assets/armbian-config2.png)
+![My helpful screenshot](/assets/armbian-config3.png)
 
 Con esto ya podemos sacar la sd, y arrancar desde la nand integrada.
 
