@@ -1,5 +1,5 @@
 ---
-title: Uprgades Debian
+title: Upgrades Debian
 date: 2024-11-29 0:31:00
 categories: [Sistemas]
 tags: [sysdamin, debian, apt, sed, updates]
