@@ -2,11 +2,12 @@
 title: Clonar Devices
 date: 2024-11-26 0:31:00
 categories: [Sistemas]
-tags: [armbian, sd, dd, clone]
+tags: [armbian, raspbian ,sd, dd, clone]
 ---
 
-# Pues aqui vamos a hablar de administracion del SO en general, y si el post se hace muy largo, tendremos que hacer mas.  
-Para crear una IMG nos ponemos en el directorio donde esta la *.img
+# Vamos a clonar cosas.
+Muchas veces necesitamos hacer una imagen exacta de una tarjeta sd, de un disco, de lo que sea. 
+Vamos al lío:
 
 ```bash
 cd /ruta/imagenes
