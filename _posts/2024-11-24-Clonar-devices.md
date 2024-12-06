@@ -127,15 +127,7 @@ zram1        253:1    0     50M  0 disk
 zram2        253:2    0      0B  0 disk 
 root@pihole:~# 
 ```
-Reiniciamos para revisar desde donde arranca, si vemos el kk estamos en la nand, y si no lo vemos pues estamos en la sd:
-```bash
-```
-
-Ahora podriamos usar la ssd o bien como mas almacenamiento (cosa que en mi caso no me interesa) o bien para ir sincronizando ambos devices, y asi tener una copia de respaldo en caso de disaster recovery.
-
-```bash
-
-```
-
-
+Reiniciamos para revisar desde donde arranca, si vemos el kk estamos en la nand, y si no lo vemos pues estamos en la sd.
+Ahora podriamos usar la ssd o bien como mas almacenamiento (cosa que en mi caso no me interesa) o bien para ir sincronizando ambos devices, y asi tener una copia de respaldo en caso de disaster recovery de la propia sd.
+Continuara....
 
