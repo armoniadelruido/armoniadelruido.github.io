@@ -1,0 +1,134 @@
+---
+title: Upgrades Debian
+date: 2024-11-29 0:31:00
+categories: [Sistemas]
+tags: [sysdamin, debian, apt, sed, updates]
+---
+
+[root@LPPXAPFH0 scripts]# cat Descarga_cpc.sh
+#!/bin/bash
+szLOG=/tmp/cpc_descarga.$(date +%Y%m%d%H%M).log
+szABA=ABAFile$(date +%Y%m%d%H%M).zip
+szSALA=SalaryFile$(date +%Y%m%d%H%M).zip
+szINVO=InvoiceFile$(date +%Y%m%d%H%M).zip
+szCASS=CASSFile$(date +%Y%m%d%H%M).zip
+szISO=ISOFile$(date +%Y%m%d%H%M).zip
+szSEPA=SEPaFile$(date +%Y%m%d%H%M).zip
+szCCIU=CCIFile$(date +%Y%m%d%H%M).zip
+szMAILKO=/tools/scripts/mail_cpc_KO.sh
+szHISTOPATH=/dades/CPC/HISTORIC
+szDESTIPATH1=/dades/CPC_NFS/Multiple/ABA
+szDESTIPATH2=/dades/CPC_NFS/Multiple/SALA
+szDESTIPATH3=/dades/CPC_NFS/Multiple/INVO
+szDESTIPATH4=/dades/CPC_NFS/Multiple/CASS
+szDESTIPATH5=/dades/CPC_NFS/Individual/ISO
+szDESTIPATH6=/dades/CPC_NFS/Individual/SEPA
+szDESTIPATH7=/dades/CPC_NFS/ClientCheckIn/CCIU
+
+cd /opt/cp-connect-1.145
+java -jar cp-connect.jar -P 2>&1|tee > /dev/null
+ if (( $?== 0))
+    then
+      echo -e ""Se ha establecido conexion CPC Fintech PRO."\n" >> $szLOG
+    else
+      echo -e ""Problema en la conexion CPC Fintech PRO."\n" >> $szLOG
+      $szMAILKO
+      exit 99
+ fi
+for i in "YVA" "YVS" "YVD" "YVC" "YVI" "YVR" "YVB"
+ do
+   case $i in
+       YVA)
+          echo  "Descargo fichero de ABA-YVA."  >> $szLOG
+          java -jar -Dlog.level=DEBUG /opt/cp-connect-1.145/cp-connect.jar -g -f $szDESTIPATH1/$szABA -o $i -u >> $szLOG
+          rc=$?
+             if (( $rc == 0))
+                then
+                echo -e ""Descarga correcta o no hay ficheros" $i. \n" >> $szLOG
+                   cp $szDESTIPATH1/* $szHISTOPATH 2>&1|tee >> $szLOG
+                else
+                   echo -e ""Error en proceso CPC-Conect-Fintech" $i. \n" >> $szLOG
+                   exit $rc
+             fi
+         ;;
+       YVS)
+          echo "Descargo fichero de Salary-YVS." >> $szLOG
+          java -jar -Dlog.level=DEBUG /opt/cp-connect-1.145/cp-connect.jar -g -f $szDESTIPATH2/$szSALA -o $i -u >> $szLOG
+          rc=$?
+             if (( $rc == 0))
+                then
+                echo -e ""Descarga correcta o no hay ficheros" $i. \n" >> $szLOG
+                   cp $szDESTIPATH2/* $szHISTOPATH 2>&1|tee >> $szLOG
+                else
+                   echo -e ""Error en proceso CPC-Conect-Fintech" $i. \n" >> $szLOG
+                   exit $rc
+             fi
+          ;;
+       YVD)
+          echo "Descargo fichero de Invoice-YVD." >> $szLOG
+          java -jar -Dlog.level=DEBUG /opt/cp-connect-1.145/cp-connect.jar -g -f $szDESTIPATH3/$szINVO -o $i -u  >> $szLOG
+          rc=$?
+             if (( $rc == 0))
+                then
+                echo -e ""Descarga correcta o no hay ficheros" $i. \n" >> $szLOG
+                   cp $szDESTIPATH3/* $szHISTOPATH/ 2>&1|tee >> $szLOG
+                else
+                   echo -e ""Error en proceso CPC-Conect-Fintech" $i. \n" >> $szLOG
+                   exit $rc
+             fi
+         ;;
+       YVC)
+          echo "Descargo fichero de la CASS-YVC." >> $szLOG
+          java -jar -Dlog.level=DEBUG /opt/cp-connect-1.145/cp-connect.jar -g -f $szDESTIPATH4/$szCASS -o $i -u  >> $szLOG
+          rc=$?
+             if (( $rc == 0))
+                then
+                echo -e ""Descarga correcta o no hay ficheros" $i. \n" >> $szLOG
+                   cp $szDESTIPATH4/* $szHISTOPATH 2>&1|tee >> $szLOG
+                else
+                   echo -e ""Error en proceso CPC-Conect-Fintech" $i. \n" >> $szLOG
+                   exit $rc
+             fi
+         ;;
+       YVI)
+          echo "Descargo fichero ISO-YVI." >> $szLOG
+          java -jar -Dlog.level=DEBUG /opt/cp-connect-1.145/cp-connect.jar -g -f $szDESTIPATH5/$szISO -o $i -u  >> $szLOG
+          rc=$?
+             if (( $rc == 0))
+                then
+                echo -e ""Descarga correcta o no hay ficheros" $i. \n" >> $szLOG
+                   cp $szDESTIPATH5/* $szHISTOPATH 2>&1|tee >> $szLOG
+                else
+                   echo -e ""Error en proceso CPC-Conect-Fintech" $i. \n" >> $szLOG
+                   exit $rc
+             fi
+         ;;
+       YVR)
+          echo "Descargo fichero SEPA-YVR." >> $szLOG
+          java -jar -Dlog.level=DEBUG /opt/cp-connect-1.145/cp-connect.jar -g -f $szDESTIPATH6/$szSEPA -o $i -u  >> $szLOG
+          rc=$?
+             if (( $rc == 0))
+                then
+                echo -e ""Descarga correcta o no hay ficheros" $i. \n" >> $szLOG
+                   cp $szDESTIPATH6/* $szHISTOPATH 2>&1|tee >> $szLOG
+                else
+                   echo -e ""Error en proceso CPC-Conect-Fintech" $i. \n" >> $szLOG
+                   exit $rc
+             fi
+         ;;
+       YVB)
+          echo "Descargo fichero CCIUpload-YVB." >> $szLOG
+          java -jar -Dlog.level=DEBUG /opt/cp-connect-1.145/cp-connect.jar -g -f $szDESTIPATH7/$szCCIU -o $i -u  >> $szLOG
+          rc=$?
+             if (( $rc == 0))
+                then
+                echo -e ""Descarga correcta o no hay ficheros" $i. \n" >> $szLOG
+                   cp $szDESTIPATH7/* $szHISTOPATH 2>&1|tee >> $szLOG
+                else
+                   echo -e ""Error en proceso CPC-Conect-Fintech" $i. \n" >> $szLOG
+                   exit $rc
+             fi
+         ;;
+   esac
+ done
+exit 0
