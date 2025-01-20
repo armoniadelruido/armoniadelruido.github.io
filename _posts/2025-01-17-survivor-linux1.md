@@ -1,7 +1,7 @@
 ---
 title: Survivor Linux1
 date: 2025-01-17 0:31:00
-categories: [Sistemas]
+categories: [Sistemas, Red Hat]
 tags: [sysdamin, linux, yum, swap, lvm, tar, compress]
 ---
 

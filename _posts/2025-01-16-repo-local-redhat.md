@@ -1,7 +1,7 @@
 ---
 title: Repositorio local para RedHat
 date: 2025-01-16 0:31:00
-categories: [Sistemas]
+categories: [Sistemas, Red Hat]
 tags: [sysdamin, update, upgrade, yum, reposync, createrepo, cves, parches, seguridad]
 ---
 

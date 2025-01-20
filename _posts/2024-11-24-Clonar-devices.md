@@ -1,7 +1,7 @@
 ---
 title: Clonar Devices
 date: 2024-11-26 0:31:00
-categories: [Sistemas]
+categories: [Sistemas, Linux]
 tags: [armbian, raspbian ,sd, dd, clone]
 ---
 

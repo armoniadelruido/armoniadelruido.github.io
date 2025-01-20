@@ -1,7 +1,7 @@
 ---
 title: Recuperar GRUB
 date: 2025-01-17 0:31:00
-categories: [Sistemas]
+categories: [Sistemas, Linux]
 tags: [sysdamin, grub, rescue, lvm, luks, cryptosetup, cifrada]
 ---
 

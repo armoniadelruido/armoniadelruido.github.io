@@ -1,7 +1,7 @@
 ---
 title: Certificados openssl
 date: 2024-11-19 0:31:00
-categories: [Certificados]
+categories: [Sistemas, Certificados]
 tags: [Certificados, ssl, https, apache, openssl]
 ---
 # Crear un certificado Multidominio, o también SAN.
