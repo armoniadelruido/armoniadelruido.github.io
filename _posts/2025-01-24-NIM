@@ -1,0 +1,49 @@
+---
+title: Nim
+date: 2025-01-24 0:31:00
+categories: [Sistemas]
+tags: [sysdamin, Aix, nim, upgrade, updates, oslevel]
+---
+
+
+alt_disk_copy -BOd hdiskX               # Clonar y eliminar configuración de red
+alt_disk_install -C -F 4.2.1.0_AIX_ML -l /updates hdiskX
+alt_disk_install -X                     # Eliminar configuración del disco alternativo
+rmdev -dl /dev/hdiskX                   # Eliminar dispositivo de disco
+recreatevg -y USUARIOvg -Y NA -L / hdiskX
+
+### Administración de NIM
+nim -o define -t lpp_source -a server=master -a location=/mnt/cdrom RESOURCE_NAME
+nim -o define -t standalone -a platform=chrp -a if1="net:ent0:dhcp" -a cable_type1=tp myprofile
+nim -o allocate -a ResourceType=ResourceName -a TargetName
+nim -o deallocate -a ResourceType=ResourceName -a subclass=all TargetName
+
+### Migración/Actualización con nimadm
+nimadm -j nimvg -c target_machine -s source_spot -l source_lpp -d "hdiskX" -Y -B
+
+### Sistema y Mantenimiento
+oslevel -s
+oslevel -rl                      # Ver nivel de mantenimiento recomendado
+install_all_updates
+
+# Archivos de logs relacionados
+/var/adm/ras/alt_mig
+/var/adm/ras/nimsh.log
+
+### Cambiar booteo
+
+```bash
+bootlist -om normal   #lista donde esta el arranque
+bootlist -m normal hdiskX # pone el arranque en ese disco
+```
+
+aldisk_install -X hdisX  #elimina la etiqueta de un disco clonado por nim
+
+### Desinstalacion fixpacks
+
+emgr -e /path/to/epkg.Z
+
+### Configuración Legacy SSH
+KexAlgorithms +diffie-hellman-group1-sha1
+Ciphers +aes128-cbc
+

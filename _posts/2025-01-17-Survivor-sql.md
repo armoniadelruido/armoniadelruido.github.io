@@ -1,11 +1,11 @@
 ---
-title: Survivor SQL
+title: Survivor MySQL
 date: 2025-01-16 0:31:00
-categories: [BBDD]
-tags: [sysdamin, sql, MariaDB, Mysql, postgress]
+categories: [BBDD,MySQL]
+tags: [sysdamin, sql, MariaDB, Mysql, postgress, survivor]
 ---
 
-## Comando útiles SQL.
+## Comando útiles MySQL.
 
 Mostrar usuarios de una base de datos:
 ```bash
