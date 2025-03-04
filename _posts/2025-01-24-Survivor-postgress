@@ -1,5 +1,5 @@
 ---
-title: Survivor MySQL
+title: Survivor postgress
 date: 2025-01-24 0:31:00
 categories: [BBDD,Postgress]
 tags: [sysdamin, sql, postgress, psql, survivor]
@@ -13,14 +13,14 @@ directorio de instalacion:
 su - postgres
 psql
 DESS y PRE
-create role documentum with login encrypted password 'Doc2018';
+create role documentum with login encrypted password 'PASSWORD';
 
 create database docdb owner documentum template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
 \q
 
 PRO 
 
-create role docboss with login encrypted password 'N4d4k3v3r';
+create role docboss with login encrypted password 'PASSWORD';
 
 create database docdb owner docboss template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
 \q

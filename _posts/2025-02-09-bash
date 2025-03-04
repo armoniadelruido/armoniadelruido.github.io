@@ -1,0 +1,18 @@
+---
+title: Scripting
+date: 2024-11-29 0:31:00
+categories: [Sistemas, Linux]
+tags: [sysdamin, shell, bash, scripting]
+---
+
+### Apuntes  scripting:
+
+Como sustituir texto en variables.
+Podemos declarar una variable, y luego otra que tenga el contenido de la primera. Con las dos // le decimos que a continuación vendrá texto que vamos a sustituir, y luego con la / el nuevo valor de texto:
+```bash
+root@fdb21a07b532:~# original_text="Me gusta el limon y la naranja"
+root@fdb21a07b532:~# modified_text="${original_text//naranja/pera}"
+root@fdb21a07b532:~# echo $modified_text
+Me gusta el limon y la pera
+root@fdb21a07b532:~# 
+```

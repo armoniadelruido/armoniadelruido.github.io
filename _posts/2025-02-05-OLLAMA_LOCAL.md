@@ -20,7 +20,7 @@ apt-get dist-upgrade
 ```
 Revisar si en este punto, quizas no hacia falta amdgpu-install --usecase=rocm, y solo con amdgpu-install -y --accept-eula hubiera bastado.
 
-Y luego instaladmos docker:
+Y luego instalamos docker:
 ```bash
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -37,5 +37,17 @@ sudo usermod -aG docker $USER
 ```
 Ahora preparamos la maquina para correr ROCm y docker https://github.com/ROCm/ROCm-docker/blob/master/quick-start.md :
 
+doker info nos tiene que devolver overlay2 en la parte de Storage driver:
 ```bash
+Storage Driver: overlay2
+```
+Containerd toolkit para AMD
+```bash
+sudo docker run -d --device /dev/dri --device /dev/kfd -v ollama:/root/.ollama -v /data/ollama:/data/ollama:z -p 11434:11434 --name ollama --restart unless-stopped -e OLLAMA_MAX_VRAM=3758096384 -e HSA_OVERRIDE_GFX_VERSION="10.3.0" -e OLLAMA_MODELS=/data/ollama ollama/ollama:rocm 
+```
+Ahora lanzamos el docker con Open Webui:
+```bash
+docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+
+```
 
