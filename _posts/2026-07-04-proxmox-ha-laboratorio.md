@@ -75,6 +75,45 @@ export PBS_REPOSITORY=<USUARIO>@pbs@<HOSTNAME>:<DATASTORE>
 
 Excluir rutas con `.pxarexclude` dentro del directorio que no se quiera respaldar.
 
+## Backup de configuracion PVE
+
+```bash
+fecha="$(date +%Y%m%d_%H%M%S)"
+destino="/backup/pve-config-${fecha}.tar.gz"
+
+tar czf "$destino" \
+  /etc/pve \
+  /etc/network/interfaces \
+  /etc/hosts \
+  /etc/cron* \
+  /etc/apcupsd 2>/dev/null
+```
+
+## Password file y fingerprint
+
+```bash
+export PBS_PASSWORD_FILE="/ruta/segura/pbs_password"
+proxmox-backup-client backup etc.pxar:/etc \
+  --repository <USUARIO>@pbs@<HOSTNAME>:<DATASTORE> \
+  --fingerprint <FINGERPRINT>
+```
+
+## Comentarios via API PBS
+
+Preferir API token o cookie temporal generada en runtime:
+
+```bash
+curl -k -X PUT \
+  -H "Authorization: PBSAPIToken=<TOKEN>" \
+  -H "Content-Type: application/json" \
+  "https://<PBS_HOST>:8007/api2/json/admin/datastore/<DATASTORE>/snapshots/<SNAPSHOT>/notes" \
+  -d '{"notes":"Backup validado"}'
+```
+
+## Script relacionado
+
+`proxmox_backup_collar.sh` usa `proxmox-backup-client` para respaldar varias rutas origen hacia un repositorio PBS y despues invoca una limpieza de memoria en el host remoto.
+
 <!--
 Fuentes consolidadas
 
@@ -84,4 +123,8 @@ Fuentes consolidadas
 - `vdi_raspberry.txt`
 - `smallab-k8s-pve-guide-main.zip`
 - `/tools/scripts/proxmox_comands`
+- `/tools/scripts/proxmox_backup_collar.sh`
+- `/tools/scripts/proxmox_backup_filesystem_ORIG`
+- `/tools/scripts/proxmox-pve-config-backup.sh`
+- `/tools/scripts/edito_comment.sh`
 -->

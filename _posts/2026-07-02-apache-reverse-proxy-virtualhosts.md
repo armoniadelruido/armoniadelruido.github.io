@@ -121,6 +121,20 @@ Header always set X-Frame-Options "SAMEORIGIN"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 ```
 
+## Analisis rapido de access logs
+
+Top IPs:
+
+```bash
+awk '{print $1}' /var/log/apache2/access.log | sort | uniq -c | sort -nr | head
+```
+
+Codigos HTTP:
+
+```bash
+awk '{print $9}' /var/log/apache2/access.log | sort | uniq -c | sort -nr
+```
+
 <!--
 Fuentes consolidadas
 
@@ -139,4 +153,6 @@ Fuentes consolidadas
 - `apache_install`
 - `apache-fpm`
 - `apache2_hardening`
+- `/tools/scripts/conexiones.sh`
+- `/tools/scripts/conexiones_ssl.sh`
 -->

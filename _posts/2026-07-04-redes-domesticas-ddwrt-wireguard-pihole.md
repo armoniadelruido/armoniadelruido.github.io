@@ -68,6 +68,18 @@ curl -s -X GET \
   | jq -r '.result[0].content'
 ```
 
+## Actualizar OpenVPN con IP DNS
+
+```bash
+ip_dns="$(curl -fsS \
+  -H "Authorization: Bearer <CLOUDFLARE_API_TOKEN>" \
+  "https://api.cloudflare.com/client/v4/zones/<ZONE_ID>/dns_records?type=A&name=<FQDN>" \
+  | jq -r '.result[0].content')"
+
+nmcli connection modify "<VPN_CONNECTION>" +vpn.data "remote=$ip_dns"
+nmcli connection reload
+```
+
 <!--
 Fuentes consolidadas
 
@@ -79,4 +91,7 @@ Fuentes consolidadas
 - `wireguard.txt`
 - `wireshark-basico.odt`
 - `/tools/scripts/chuleta_api_ips`
+- `/tools/scripts/saco_ip_cloudflare.sh`
+- `/tools/scripts/saco_ip_cloudflare.sh.ORIG`
+- `/tools/scripts/saco_ip_carraca_cloudflare.sh`
 -->

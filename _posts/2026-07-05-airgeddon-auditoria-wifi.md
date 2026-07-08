@@ -59,6 +59,10 @@ systemctl restart NetworkManager
 - NetworkManager bloqueando la interfaz.
 - Falta de herramientas opcionales para ataques o capturas concretas.
 
+## Vendor local
+
+Existe una copia local del proyecto bajo `/tools/scripts/airgeddon/`. Para documentacion publica es mejor referenciar comandos de uso y requisitos, no volcar codigo del proyecto externo.
+
 <!--
 Fuentes consolidadas
 

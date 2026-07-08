@@ -25,7 +25,7 @@ dd bs=4M if=pi3_1.img of=/dev/sdb
 ```
 Si queremos hacer una copia de la sd al disco duro es al reves:
 ```bash
-dd bs=4M if=/dev/sd* of=/media/collar/IMGs/makemyself/NOMBREIMAGEN.img
+dd bs=4M if=/dev/sd* of=/ruta/imagenes/NOMBREIMAGEN.img
 ```
 Así de simple  :)
 Y si es un DIsco duro completo????
@@ -145,4 +145,3 @@ dd if=/ruta/backup.img of=/dev/<DISCO_DESTINO> bs=4M status=progress conv=fsync
 ```
 
 <!-- Fuentes integradas o revisadas: `clonar_sd`. -->
-

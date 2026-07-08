@@ -68,6 +68,45 @@ YYYY-MM-DD HH:MM:SS - Finaliza limpieza remota
 
 Este patron permite comprobar rapidamente si la descarga, el borrado local y la limpieza remota han terminado correctamente.
 
+## Patron rsync con lista de rutas
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+DESTINO="<USUARIO>@<HOSTNAME>:/destino/"
+LOG="/var/log/rsync-homelab.log"
+
+rutas=(
+  "/home/<USUARIO>/Documentos"
+  "/home/<USUARIO>/Imagenes"
+  "/opt/tools"
+)
+
+for ruta in "${rutas[@]}"; do
+  printf '[%s] Sincronizando %s\n' "$(date --iso-8601=seconds)" "$ruta" >> "$LOG"
+  rsync -avh --delete "$ruta/" "$DESTINO$(basename "$ruta")/" >> "$LOG" 2>&1
+done
+```
+
+## Local vs SSH
+
+Destino local:
+
+```bash
+rsync -avh --delete /origen/ /mnt/backup/origen/
+```
+
+Destino remoto:
+
+```bash
+rsync -avh --delete -e ssh /origen/ <USUARIO>@<HOSTNAME>:/backup/origen/
+```
+
+## Script relacionado
+
+`copio_cosas_collar_local.sh` aplica este patron a varias rutas origen locales y destinos locales de backup.
+
 <!--
 Fuentes consolidadas
 
@@ -79,4 +118,15 @@ Fuentes consolidadas
 - `deb9/crontabs`
 - `/tools/scripts/sftp_provas/log/SFTP.log`
 - `/tools/scripts/sftp_provas/log/SFTP.logecho`
+- `/tools/scripts/copio_collar_a_urano.sh`
+- `/tools/scripts/copio_cosas_a_urano.sh`
+- `/tools/scripts/copio_FSs_a_urano.sh`
+- `/tools/scripts/muevo_cosas_a_urano.sh`
+- `/tools/scripts/copio_cosas_a_saturno.sh`
+- `/tools/scripts/muevo_cosas_a_saturno.sh`
+- `/tools/scripts/copio_cosas_collar_local.sh`
+- `/tools/scripts/copio_tools_al_collar_local.sh`
+- `/tools/scripts/sync_files_a_nextcloud.sh`
+- `/tools/scripts/sync_docs_a_nextcloud.sh._v1`
+- `/tools/scripts/sync_docs_a_cirro.sh`
 -->

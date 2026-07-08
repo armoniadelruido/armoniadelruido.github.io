@@ -62,6 +62,10 @@ exiftool -r -overwrite_original -all= /ruta/imagenes
 exiftool -@ reglas.args fichero.jpg
 ```
 
+## Vendor local
+
+Existe una copia local del proyecto bajo `/tools/scripts/exiftool/`. Para documentacion publica conviene conservar solo ejemplos de uso y referencias a ficheros de argumentos, no duplicar la documentacion completa del proyecto externo.
+
 <!--
 Fuentes consolidadas
 

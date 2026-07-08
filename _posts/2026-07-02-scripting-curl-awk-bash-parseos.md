@@ -68,6 +68,28 @@ Ficheros presentes en ambas listas:
 comm -12 origen.sorted existentes.sorted
 ```
 
+## Leer fichero y ejecutar accion
+
+```bash
+while IFS= read -r linea; do
+  printf 'Procesando %s\n' "$linea"
+done < entrada.txt
+```
+
+## Copiar a varios hosts
+
+```bash
+while IFS= read -r host; do
+  scp -r /origen/ "<USUARIO>@${host}:/destino/"
+done < hosts.txt
+```
+
+## Generar datos ficticios para pruebas
+
+```bash
+python3 herramienta.py "<NOMBRE_FICTICIO>"
+```
+
 ## plantilla bash
 
 ```bash
@@ -109,4 +131,10 @@ Fuentes consolidadas
 - `scripts_para_realizar_ejercicios.txt`
 - `/tools/scripts/parse_fichero/fileexit`
 - `/tools/scripts/parse_fichero/orifenfile`
+- `/tools/scripts/parse_fichero/prova.sh`
+- `/tools/scripts/parse_fichero/rr.sh`
+- `/tools/scripts/prueba_secuencia.sh`
+- `/tools/scripts/prueba_secuencia_v2.sh`
+- `/tools/scripts/scp_red.bash`
+- `/tools/scripts/dni.py`
 -->

@@ -126,6 +126,28 @@ ProxyPass        /cool https://<IP_INTERNA>:9980/cool
 ProxyPassReverse /cool https://<IP_INTERNA>:9980/cool
 ```
 
+## Sincronizacion externa de ficheros
+
+Si se sincronizan ficheros hacia un almacenamiento usado por Nextcloud, conviene evitar escrituras directas sin mantenimiento y reindexado.
+
+```bash
+sudo -u www-data php /var/www/nextcloud/occ maintenance:mode --on
+rsync -avh /origen/ /srv/nextcloud/data/<USUARIO>/files/
+chown -R www-data:www-data /srv/nextcloud/data
+sudo -u www-data php /var/www/nextcloud/occ files:scan --all
+sudo -u www-data php /var/www/nextcloud/occ maintenance:mode --off
+```
+
+Para pruebas, usar antes:
+
+```bash
+rsync -avhn /origen/ /srv/nextcloud/data/<USUARIO>/files/
+```
+
+## Script relacionado
+
+`sync_files_a_nextcloud.sh` monta un origen remoto de Nextcloud, sincroniza rutas origen locales hacia el destino montado y lanza una correccion remota de permisos.
+
 <!--
 Fuentes consolidadas
 
@@ -141,4 +163,7 @@ Fuentes consolidadas
 - `onlyoffice/generate.json`
 - `onlyoffice/local.json`
 - `onlyoffice/problemas`
+- `/tools/scripts/sync_files_a_nextcloud.sh`
+- `/tools/scripts/sync_docs_a_nextcloud.sh._v1`
+- `/tools/scripts/sync_docs_a_cirro.sh`
 -->
