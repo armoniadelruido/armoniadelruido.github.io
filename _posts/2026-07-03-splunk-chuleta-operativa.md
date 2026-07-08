@@ -39,6 +39,13 @@ index=<INDEX> | rex field=_raw "usuario=(?<usuario>[^ ]+)" | stats count by usua
 /opt/splunkforwarder/bin/splunk list forward-server
 ```
 
+## Revisar inputs
+
+```bash
+/opt/splunkforwarder/bin/splunk list monitor
+/opt/splunkforwarder/bin/splunk btool inputs list --debug
+```
+
 <!--
 Fuentes consolidadas
 

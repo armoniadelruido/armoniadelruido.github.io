@@ -131,4 +131,18 @@ root@pihole:~#
 Reiniciamos para revisar desde donde arranca, si vemos el kk estamos en la nand, y si no lo vemos pues estamos en la sd.
 Ahora podriamos usar la ssd o bien como mas almacenamiento (cosa que en mi caso no me interesa) o bien para ir sincronizando ambos devices, y asi tener una copia de respaldo en caso de disaster recovery de la propia sd.
 Continuara....
+## Clonar SD o disco completo
+
+```bash
+lsblk
+dd if=/dev/<DISCO_ORIGEN> of=/ruta/backup.img bs=4M status=progress conv=fsync
+```
+
+Restaurar imagen:
+
+```bash
+dd if=/ruta/backup.img of=/dev/<DISCO_DESTINO> bs=4M status=progress conv=fsync
+```
+
+<!-- Fuentes integradas o revisadas: `clonar_sd`. -->
 

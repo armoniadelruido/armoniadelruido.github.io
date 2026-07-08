@@ -52,4 +52,29 @@ Cuando estemos seguros de que todo esta bien, podemos purgar restos:
 ```bash
 apt-get --purge autoremove
 ```
+## Repositorios y claves
+
+```bash
+apt update
+apt full-upgrade
+apt install -y ca-certificates gnupg apt-transport-https
+```
+
+Si falla una clave publica de repositorio:
+
+```bash
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <KEY_ID>
+```
+
+## Cambio de version
+
+```bash
+cp /etc/apt/sources.list /etc/apt/sources.list.bak
+sed -i 's/<VERSION_ANTERIOR>/<VERSION_NUEVA>/g' /etc/apt/sources.list
+apt update
+apt full-upgrade
+reboot
+```
+
+<!-- Fuentes integradas o revisadas: `upgrades_distribucion_a_otra`, `problemas PUBKEYS`, `aptitude`, `Cosas_Debian_Wheeze.odt`. -->
 

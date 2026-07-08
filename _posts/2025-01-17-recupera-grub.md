@@ -58,3 +58,25 @@ Por ultimo, solo nos quedaría updatear grub:
  sudo update-grub
  ```
 
+## Recuperacion con LUKS y LVM
+
+```bash
+cryptsetup luksOpen /dev/<DISCO_PARTICION> cryptroot
+vgchange -ay
+mount /dev/<VG>/<LV_ROOT> /mnt
+mount /dev/<DISCO_BOOT> /mnt/boot
+mount /dev/<DISCO_EFI> /mnt/boot/efi
+for i in /dev /dev/pts /proc /sys /run; do mount --bind "$i" "/mnt$i"; done
+chroot /mnt
+grub-install /dev/<DISCO>
+update-grub
+```
+
+## Reparar sistema de ficheros al arrancar
+
+```bash
+fsck -f /dev/<DISPOSITIVO>
+mount -o remount,rw /
+```
+
+<!-- Fuentes integradas o revisadas: `grub_root`, `reparar_grub`, `recuperar grub sistema.txt`, `Cifrar dispositivos con LUKS`, `InstalarSO con cifrado`, `fallo fsck error onboot`. -->

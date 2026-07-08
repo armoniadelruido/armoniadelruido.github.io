@@ -94,6 +94,33 @@ ProxyPassReverse /api/ https://api.example.local/
 RequestHeader set X-Forwarded-Proto "https"
 ```
 
+## Apache con PHP-FPM
+
+```bash
+a2enmod proxy_fcgi setenvif
+a2enconf php-fpm
+systemctl reload apache2
+```
+
+Ejemplo de proxy hacia socket PHP-FPM:
+
+```apache
+<FilesMatch \.php$>
+    SetHandler "proxy:unix:/run/php/php-fpm.sock|fcgi://localhost/"
+</FilesMatch>
+```
+
+## Hardening basico
+
+```apache
+ServerTokens Prod
+ServerSignature Off
+TraceEnable Off
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+```
+
 <!--
 Fuentes consolidadas
 
@@ -109,4 +136,7 @@ Fuentes consolidadas
 - `new 7.txt`
 - `new 57.txt`
 - `new 64.txt`
+- `apache_install`
+- `apache-fpm`
+- `apache2_hardening`
 -->

@@ -91,6 +91,14 @@ keytool -list -v -keystore app.jks | grep -E 'Alias name|Valid from'
 systemctl reload httpd
 ```
 
+## Certbot con Apache
+
+```bash
+apt install -y certbot python3-certbot-apache
+certbot --apache -d app.example.local -m usuario@example.com --agree-tos
+certbot renew --dry-run
+```
+
 <!--
 Fuentes consolidadas
 
@@ -106,4 +114,5 @@ Fuentes consolidadas
 - `control_certis_nagios.txt`
 - `new 34.txt`
 - `new 57.txt`
+- `creacion_certis_ssl`
 -->

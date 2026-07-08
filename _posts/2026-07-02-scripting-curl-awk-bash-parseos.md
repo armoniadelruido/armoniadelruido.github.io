@@ -41,6 +41,14 @@ awk '{print $1}' access.log | sort | uniq -c | sort -nr | head
 awk '{print $9}' access.log | sort | uniq -c | sort -nr
 ```
 
+## Timestamps en scripts
+
+```bash
+fecha="$(date +%Y%m%d_%H%M%S)"
+log="/var/log/script_${fecha}.log"
+printf '[%s] inicio\n' "$(date --iso-8601=seconds)" >> "$log"
+```
+
 ## plantilla bash
 
 ```bash
@@ -78,4 +86,6 @@ Fuentes consolidadas
 - `script_paths.txt`
 - `script_sftp_3_equipos.txt`
 - `script_2_cirro.txt`
+- `timestamps_scripts_ejemplo.txt`
+- `scripts_para_realizar_ejercicios.txt`
 -->
