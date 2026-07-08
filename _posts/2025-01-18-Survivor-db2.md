@@ -11,6 +11,33 @@ Mostrar bases de datos disponibles:
 ```bash
 db2 list active databases
 ```
+
+## Consolidacion de apuntes DB2
+
+<!-- Fuentes integradas o revisadas: `DB2 Survivol.txt`, `RESTORES DB2.txt`, `restores tablas DB2.txt`, `RESTORE_SCRIPT_DB2.txt`, `indoubt.txt`, `indobts.txt`, `tablespaces.txt`, `Partitions.txt`, `Mascaras.txt`, `Masacaras_db2 4.txt`. -->
+
+### Backup y restore saneados
+
+```bash
+db2 backup db <BBDD> online to /ruta/ejemplo/backups include logs
+db2 restore db <BBDD> from /ruta/ejemplo/backups taken at <TIMESTAMP>
+db2 rollforward db <BBDD> to end of logs and complete
+```
+
+### Transacciones indoubt
+
+```bash
+db2 list indoubt transactions with prompting
+db2pd -db <BBDD> -transactions
+db2pd -db <BBDD> -locks
+```
+
+### Tablespaces
+
+```bash
+db2 list tablespaces show detail
+db2 "select tbsp_name, tbsp_state from sysibmadm.tbsp_utilization"
+```
 Mostrar configuracion de la base de datos:
 ```bash
 db2 get db cfg for MIBBDD

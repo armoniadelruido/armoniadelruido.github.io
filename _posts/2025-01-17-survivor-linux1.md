@@ -236,3 +236,40 @@ pwdadm -c usuario
 
 
 
+
+## Consolidacion de apuntes Linux
+
+<!-- Fuentes integradas o revisadas: `survivor_LINUX.txt`, `LVM survivor.txt`, `Discos y FSs.txt`, `SWAP.txt`, `reset_root.txt`, `Crontab.txt`, `Script_servicios.txt`, `logrotate.txt`. -->
+
+### Servicios
+
+```bash
+systemctl status <SERVICIO>
+systemctl enable <SERVICIO>
+systemctl restart <SERVICIO>
+journalctl -u <SERVICIO> -f
+```
+
+### Logrotate minimo
+
+```text
+/var/log/<APP>/*.log {
+    daily
+    rotate 14
+    compress
+    missingok
+    notifempty
+    copytruncate
+}
+```
+
+### Root password en modo rescue
+
+```bash
+mount -o remount,rw /sysroot
+chroot /sysroot
+passwd root
+touch /.autorelabel
+exit
+reboot
+```

@@ -187,3 +187,27 @@ show databases;
 ```bash
 DROP DATABASE nombre bbdd
 ```
+## Consolidacion de apuntes SQL
+
+<!-- Fuentes integradas o revisadas: `sql_survivor.txt`, `postgress.txt`. -->
+
+### PostgreSQL
+
+```bash
+psql -h <HOSTNAME> -U <USUARIO> -d <BBDD>
+```
+
+```sql
+select version();
+select datname from pg_database;
+select usename from pg_user;
+select schemaname, tablename from pg_tables order by 1,2;
+```
+
+### MySQL/MariaDB
+
+```sql
+show databases;
+show processlist;
+select user, host from mysql.user;
+```
