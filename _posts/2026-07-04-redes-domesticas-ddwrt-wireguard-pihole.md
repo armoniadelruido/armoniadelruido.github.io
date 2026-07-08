@@ -57,6 +57,17 @@ dns
 icmp
 ```
 
+## Consultar DNS en Cloudflare por API
+
+```bash
+curl -s -X GET \
+  "https://api.cloudflare.com/client/v4/zones/<ZONE_ID>/dns_records?type=A&name=<FQDN>" \
+  -H "X-Auth-Email: usuario@example.com" \
+  -H "X-Auth-Key: <TOKEN>" \
+  -H "Content-Type: application/json" \
+  | jq -r '.result[0].content'
+```
+
 <!--
 Fuentes consolidadas
 
@@ -67,4 +78,5 @@ Fuentes consolidadas
 - `VPN_SAURON`
 - `wireguard.txt`
 - `wireshark-basico.odt`
+- `/tools/scripts/chuleta_api_ips`
 -->

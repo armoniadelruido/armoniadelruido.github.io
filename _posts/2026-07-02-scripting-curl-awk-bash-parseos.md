@@ -49,6 +49,25 @@ log="/var/log/script_${fecha}.log"
 printf '[%s] inicio\n' "$(date --iso-8601=seconds)" >> "$log"
 ```
 
+## Comparar listas de ficheros
+
+```bash
+sort origen.txt > origen.sorted
+sort existentes.txt > existentes.sorted
+```
+
+Ficheros presentes en origen y no en existentes:
+
+```bash
+comm -23 origen.sorted existentes.sorted
+```
+
+Ficheros presentes en ambas listas:
+
+```bash
+comm -12 origen.sorted existentes.sorted
+```
+
 ## plantilla bash
 
 ```bash
@@ -88,4 +107,6 @@ Fuentes consolidadas
 - `script_2_cirro.txt`
 - `timestamps_scripts_ejemplo.txt`
 - `scripts_para_realizar_ejercicios.txt`
+- `/tools/scripts/parse_fichero/fileexit`
+- `/tools/scripts/parse_fichero/orifenfile`
 -->

@@ -57,6 +57,17 @@ crontab -e
 crontab -u <USUARIO> -l
 ```
 
+## Patron de log para SFTP
+
+```text
+YYYY-MM-DD HH:MM:SS - Comienza SFTP
+YYYY-MM-DD HH:MM:SS - Finaliza descarga
+YYYY-MM-DD HH:MM:SS - Se eliminan archivos temporales
+YYYY-MM-DD HH:MM:SS - Finaliza limpieza remota
+```
+
+Este patron permite comprobar rapidamente si la descarga, el borrado local y la limpieza remota han terminado correctamente.
+
 <!--
 Fuentes consolidadas
 
@@ -66,4 +77,6 @@ Fuentes consolidadas
 - `rsync`
 - `rsync_samples`
 - `deb9/crontabs`
+- `/tools/scripts/sftp_provas/log/SFTP.log`
+- `/tools/scripts/sftp_provas/log/SFTP.logecho`
 -->
