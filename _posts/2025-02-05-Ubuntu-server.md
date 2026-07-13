@@ -32,10 +32,10 @@ vi /etc/netplan/00-installer-config.yaml
 network:
   ethernets:
    enp6s18:
-    addresses: [192.168.10.12/24]
-    gateway4: 192.168.10.1
+    addresses: [<IP_INTERNA>/24]
+    gateway4: <IP_INTERNA>
     nameservers:
      search: [redinterna.local]
-     addresses: [192.168.10.10]
+      addresses: [<IP_INTERNA>]
 version: 2
 ```

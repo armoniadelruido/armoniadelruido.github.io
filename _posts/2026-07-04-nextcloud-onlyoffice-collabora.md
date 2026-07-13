@@ -148,6 +148,31 @@ rsync -avhn /origen/ /srv/nextcloud/data/<USUARIO>/files/
 
 `sync_files_a_nextcloud.sh` monta un origen remoto de Nextcloud, sincroniza rutas origen locales hacia el destino montado y lanza una correccion remota de permisos.
 
+## Scripts Nextcloud relacionados
+
+- `dumpea.sh`: activa mantenimiento, genera dump SQL y desactiva mantenimiento.
+- `import_sql.sh`: importa un dump SQL en un Nextcloud destino.
+- `backup_filesystem.sh`: respalda rutas origen del sistema y datos Nextcloud.
+- `sincro_nubes.sh`: sincroniza datos Nextcloud y BBDD entre hosts.
+
+## Backup y restauracion Nextcloud
+
+Orden recomendado para una copia consistente:
+
+```bash
+sudo -u www-data php /ruta/origen/nextcloud/occ maintenance:mode --on
+mysqldump --defaults-extra-file=/ruta/segura/mysql.cnf <BBDD_NEXTCLOUD> > /ruta/destino/nextcloud.sql
+rsync -aHAX /ruta/origen/nextcloud-data/ /ruta/destino/nextcloud-data/
+sudo -u www-data php /ruta/origen/nextcloud/occ maintenance:mode --off
+```
+
+Para restaurar, primero se recupera la BBDD, despues el filesystem y por ultimo se ejecutan reparaciones y escaneo si aplica:
+
+```bash
+sudo -u www-data php /ruta/origen/nextcloud/occ maintenance:repair
+sudo -u www-data php /ruta/origen/nextcloud/occ files:scan --all
+```
+
 <!--
 Fuentes consolidadas
 

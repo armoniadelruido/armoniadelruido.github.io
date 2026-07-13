@@ -9,6 +9,18 @@ tags: [bash, pfsense, backup, curl, csrf, firewall]
 
 Este script automatiza la descarga de backups de configuracion de varios pfSense mediante login web, cookies y token CSRF.
 
+## Uso en la infraestructura
+
+Se usa para proteger la configuracion de firewalls: reglas, NAT, VPN, HAProxy y certificados.
+
+| Rol | Servicio | Impacto si falla |
+|---|---|---|
+| Backup firewall | pfSense | Se pierde punto de restauracion de red/perimetro |
+| Multi-firewall | Varias instancias | No hay copia coherente de todos los nodos |
+| Retencion | XML de config | El destino puede llenarse o quedarse sin historico |
+
+Es critico antes de cambios de reglas, actualizaciones o renovacion de certificados.
+
 ## Ejecucion programada
 
 ```cron
@@ -26,7 +38,38 @@ Este script automatiza la descarga de backups de configuracion de varios pfSense
 6. Guarda el fichero en una ruta destino de backups.
 7. Llama a `depura_ficheros.sh` para borrar backups antiguos.
 
-## Version saneada
+## Script original anonimizado
+
+```bash
+curl -L -k --cookie-jar cookies.txt \
+     https://<HOSTNAME>:444/ \
+     | grep "name='__csrf_magic'" \
+     | sed 's/.*value="\(.*\)".*/\1/' > csrf.txt
+
+curl -L -k --cookie cookies.txt --cookie-jar cookies.txt \
+     --data-urlencode "login=Login" \
+     --data-urlencode "usernamefld=<USUARIO_ADMIN>" \
+     --data-urlencode "passwordfld=<PASSWORD>" \
+     --data-urlencode "__csrf_magic=$(cat csrf.txt)" \
+     https://<HOSTNAME>:444/ > /dev/null
+
+curl -L -k --cookie cookies.txt --cookie-jar cookies.txt \
+     https://<HOSTNAME>:444/diag_backup.php \
+     | grep "name='__csrf_magic'" \
+     | sed 's/.*value="\(.*\)".*/\1/' > csrf.txt
+
+curl -L -k --cookie cookies.txt --cookie-jar cookies.txt \
+     --data-urlencode "download=download" \
+     --data-urlencode "donotbackuprrd=yes" \
+     --data-urlencode "backupdata=yes" \
+     --data-urlencode "backupssh=yes" \
+     --data-urlencode "__csrf_magic=$(head -n 1 csrf.txt)" \
+     https://<HOSTNAME>:444/diag_backup.php > /ruta/destino/backups/pfsense/config-<HOSTNAME>-`date +%Y%m%d%H%M%S`.xml
+
+/ruta/origen/scripts/pfsense/depura_ficheros.sh
+```
+
+## Version revisada
 
 ```bash
 #!/usr/bin/env bash
@@ -79,6 +122,15 @@ done
 - Borrar temporales con `trap`.
 - Validar que el XML descargado no esta vacio.
 - Evitar `-k` si se puede validar certificado correctamente.
+
+## Cambios y motivo
+
+| Cambio | Motivo |
+|---|---|
+| funcion por firewall | evita duplicar el bloque completo por cada pfSense |
+| temporales con `mktemp` | no deja `cookies.txt` y `csrf.txt` fijos en el directorio |
+| validar XML descargado | evita conservar backups vacios o pagina de login |
+| credenciales fuera del script | reduce exposicion de password de firewall |
 
 <!--
 Fuentes consolidadas

@@ -59,7 +59,7 @@ FLUSH PRIVILEGES;
 
 ```bash
 MariaDB [(none)]> USE mysql;
-MariaDB [(none)]> UPDATE user SET password=PASSWORD('YourNewPasswordHere') WHERE User='root' AND Host = 'localhost';
+MariaDB [(none)]> UPDATE user SET password='<PASSWORD_HASH>' WHERE User='<USUARIO_ADMIN>' AND Host = 'localhost';
 MariaDB [(none)]> FLUSH PRIVILEGES;
 ```
 
@@ -189,7 +189,12 @@ DROP DATABASE nombre bbdd
 ```
 ## Consolidacion de apuntes SQL
 
-<!-- Fuentes integradas o revisadas: `sql_survivor.txt`, `postgress.txt`. -->
+<!--
+Fuentes consolidadas
+
+- `sql_survivor.txt`
+- `postgress.txt`
+-->
 
 ### PostgreSQL
 

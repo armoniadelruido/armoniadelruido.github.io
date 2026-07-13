@@ -76,5 +76,11 @@ apt full-upgrade
 reboot
 ```
 
-<!-- Fuentes integradas o revisadas: `upgrades_distribucion_a_otra`, `problemas PUBKEYS`, `aptitude`, `Cosas_Debian_Wheeze.odt`. -->
+<!--
+Fuentes consolidadas
 
+- `upgrades_distribucion_a_otra`
+- `problemas PUBKEYS`
+- `aptitude`
+- `Cosas_Debian_Wheeze.odt`
+-->

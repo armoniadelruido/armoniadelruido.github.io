@@ -64,6 +64,22 @@ printf 'Actualizaria %s con remote=%s\n' "$NM_CONNECTION" "$ip_dns"
 - Guardar tokens en variables de entorno o fichero `.env` con permisos `600`.
 - Añadir logs y salida diferenciada para cambios/no cambios.
 
+## Script relacionado
+
+`libra_scripts` amplia este patron con un orquestador que detecta cambios de IP publica, actualiza varios registros A en Cloudflare y regenera el perfil cliente OpenVPN.
+
+## Patron multi-registro
+
+```bash
+for record in cloud docs meet vpn; do
+  fqdn="${record}.example.net"
+  curl -fsS -X PUT "https://api.cloudflare.com/client/v4/zones/<ZONE_ID>/dns_records/<RECORD_ID>" \
+    -H "Authorization: Bearer <CLOUDFLARE_API_TOKEN>" \
+    -H 'Content-Type: application/json' \
+    --data "{\"type\":\"A\",\"name\":\"${fqdn}\",\"content\":\"${ip_actual}\",\"ttl\":1,\"proxied\":true}"
+done
+```
+
 <!--
 Fuentes consolidadas
 

@@ -144,4 +144,8 @@ Restaurar imagen:
 dd if=/ruta/backup.img of=/dev/<DISCO_DESTINO> bs=4M status=progress conv=fsync
 ```
 
-<!-- Fuentes integradas o revisadas: `clonar_sd`. -->
+<!--
+Fuentes consolidadas
+
+- `clonar_sd`
+-->

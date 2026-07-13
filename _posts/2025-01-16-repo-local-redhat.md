@@ -22,7 +22,7 @@ vi /etc/yum.conf
 ```bash
 proxy=http://proxy.MIDOMINIO.COM:9090
 proxy_username=USUARIO
-proxy_password=PASSWORD
+proxy_password=<PASSWORD>
 ```
 
 Luego instalamos estos paquets:
@@ -333,7 +333,7 @@ Cajón desastre:
 ```bash
 vi /usr/lib/rsc/exports
 
-10.0.0.1   rw,user=root
+<IP_INTERNA>   rw,user=root
 MAQUINA.MIDOMINIO.COM rw,user=root
 
 /ruta/www/repos/rhel-dvd-7_0-rpms/
@@ -366,4 +366,3 @@ needs-restarting -r
 ```
 
  
-

@@ -99,6 +99,27 @@ certbot --apache -d app.example.local -m usuario@example.com --agree-tos
 certbot renew --dry-run
 ```
 
+## Scripts relacionados
+
+`libra_scripts` documenta renovacion wildcard con `certbot --dns-cloudflare`, copia controlada de PEMs e importacion de certificados en pfSense/HAProxy.
+
+## DNS-01 con Cloudflare
+
+```bash
+certbot certonly \
+  --dns-cloudflare \
+  --dns-cloudflare-credentials /ruta/segura/cloudflare.ini \
+  --non-interactive \
+  -d example.net \
+  -d '*.example.net'
+```
+
+El fichero de credenciales debe tener permisos restrictivos:
+
+```bash
+chmod 600 /ruta/segura/cloudflare.ini
+```
+
 <!--
 Fuentes consolidadas
 

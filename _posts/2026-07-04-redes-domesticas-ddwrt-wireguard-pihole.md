@@ -13,20 +13,20 @@ Este post ayuda a documentar tareas de red domestica: repetidores, VPN WireGuard
 
 ```ini
 [Interface]
-Address = 10.10.10.1/24
+Address = <IP_INTERNA>/24
 ListenPort = 51820
 PrivateKey = <PRIVATE_KEY>
 
 [Peer]
 PublicKey = <PUBLIC_KEY_CLIENTE>
-AllowedIPs = 10.10.10.2/32
+AllowedIPs = <IP_INTERNA>/32
 ```
 
 ## WireGuard: cliente
 
 ```ini
 [Interface]
-Address = 10.10.10.2/24
+Address = <IP_INTERNA>/24
 PrivateKey = <PRIVATE_KEY_CLIENTE>
 DNS = <IP_DNS>
 
@@ -79,6 +79,12 @@ ip_dns="$(curl -fsS \
 nmcli connection modify "<VPN_CONNECTION>" +vpn.data "remote=$ip_dns"
 nmcli connection reload
 ```
+
+## Scripts relacionados
+
+- `open_vpn_clients.sh`: actualiza un perfil `.ovpn` cuando cambia la IP publica.
+- `piholes_certs.sh`: referencia operativa para desplegar certificados en servicios internos.
+- `revisa_ip_publica.sh`: dispara actualizaciones DDNS y regeneracion de cliente VPN.
 
 <!--
 Fuentes consolidadas

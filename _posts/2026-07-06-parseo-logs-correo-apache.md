@@ -59,6 +59,22 @@ done
 - No publicar IPs completas en informes publicos.
 - Guardar salidas en ficheros timestamp si la investigacion se repite.
 
+## Jitsi y Fail2ban
+
+```bash
+awk '/http-bind\?room=/ {print $1, $4, $7}' /var/log/apache2/jitsi/access.log | sort -u
+fail2ban-client status
+tail -n 50 /var/log/fail2ban.log
+```
+
+## Alerta simple
+
+```bash
+curl -fsS -X POST "https://api.telegram.org/bot<TOKEN>/sendMessage" \
+  -d chat_id="<CHAT_ID>" \
+  --data-urlencode text="Revisar logs en <HOSTNAME>"
+```
+
 <!--
 Fuentes consolidadas
 

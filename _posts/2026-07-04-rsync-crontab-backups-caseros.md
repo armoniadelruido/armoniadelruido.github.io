@@ -107,6 +107,30 @@ rsync -avh --delete -e ssh /origen/ <USUARIO>@<HOSTNAME>:/backup/origen/
 
 `copio_cosas_collar_local.sh` aplica este patron a varias rutas origen locales y destinos locales de backup.
 
+## Scripts Nextcloud relacionados
+
+- `backup_filesystem.sh`: usa `rsync` para copiar rutas origen hacia destino local/remoto.
+- `muevo_sqls.sh`: empaqueta SQLs y los mueve a destino remoto.
+- `muevo_filesystems_neptuno.sh`: empaqueta filesystems y los mueve a destino mensual.
+- `backup_nube_neptuno.sh`: sincroniza el arbol de Nextcloud hacia destino mensual.
+- `muevo_tools_etc_urano.sh`: empaqueta `etc` y `tools` y los mueve a destino externo.
+
+## Matriz origen destino
+
+| Caso | Ejemplo | Precaucion |
+|---|---|---|
+| Local a local | `/ruta/origen/` a `/ruta/destino/` | comprobar espacio libre |
+| Local a NFS | `/ruta/origen/` a `/mnt/destino/` | validar mount antes de copiar |
+| SSH remoto | `<HOSTNAME>:/ruta/origen/` a `/ruta/destino/` | usar clave dedicada |
+| Empaquetado | `tar.gz` mensual | no borrar origen sin confirmar copia |
+
+Checklist minimo antes de automatizar:
+
+- Probar con `rsync -n`.
+- Registrar salida en `/var/log/<SCRIPT>.log`.
+- Usar `trap` si hay mounts temporales.
+- Usar patrones concretos en limpiezas con `find`.
+
 <!--
 Fuentes consolidadas
 

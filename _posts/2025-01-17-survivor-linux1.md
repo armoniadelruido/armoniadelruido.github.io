@@ -239,7 +239,18 @@ pwdadm -c usuario
 
 ## Consolidacion de apuntes Linux
 
-<!-- Fuentes integradas o revisadas: `survivor_LINUX.txt`, `LVM survivor.txt`, `Discos y FSs.txt`, `SWAP.txt`, `reset_root.txt`, `Crontab.txt`, `Script_servicios.txt`, `logrotate.txt`. -->
+<!--
+Fuentes consolidadas
+
+- `survivor_LINUX.txt`
+- `LVM survivor.txt`
+- `Discos y FSs.txt`
+- `SWAP.txt`
+- `reset_root.txt`
+- `Crontab.txt`
+- `Script_servicios.txt`
+- `logrotate.txt`
+-->
 
 ### Servicios
 

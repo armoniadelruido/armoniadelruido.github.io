@@ -9,6 +9,18 @@ tags: [bash, rsync, nextcloud, nfs, permisos]
 
 Este script monta un almacenamiento remoto de Nextcloud, sincroniza ficheros desde un origen local y ejecuta una correccion remota de permisos.
 
+## Uso en la infraestructura
+
+Se usa para publicar o respaldar ficheros locales en Nextcloud manteniendo permisos corregidos en destino.
+
+| Rol | Servicio | Impacto si falla |
+|---|---|---|
+| Sincronizacion | Nextcloud files | Los ficheros locales no llegan a la nube |
+| Permisos | Nextcloud data | Los ficheros pueden no ser visibles o accesibles |
+| Operacion remota | Host Nextcloud | Falla la correccion tras el rsync |
+
+Debe coordinarse con escaneos `occ` si se modifican ficheros directamente en `data/`.
+
 ## Ejecucion programada
 
 ```cron
@@ -25,7 +37,40 @@ Este script monta un almacenamiento remoto de Nextcloud, sincroniza ficheros des
 6. Desmonta el punto de montaje.
 7. Lanza por SSH un script remoto de permisos.
 
-## Version saneada
+## Script original anonimizado
+
+```bash
+#!/bin/bash
+LOG=/var/log/sync_files_a_nextcloud.log
+
+echo "Inicia la sincronizacion de documentos hacia la nube" > $LOG
+echo "Monta la unidad remota" >> $LOG
+mount <HOSTNAME>:/ruta/destino/nextcloud/files /mnt/nextcloud >> $LOG
+if [ $? -ne 0 ]; then
+        echo "Error montando la unidad remota" > $LOG
+        exit 5
+else
+        echo "Sincronizamos Documentos" >> $LOG
+        rsync -r -t -p -o -g -l -H -i -s /ruta/origen/Documentos/ /mnt/nextcloud/Documentos/ >> $LOG
+if [ $? -ne 0 ]; then echo "Error en la  sincronizacion" >> $LOG; exit 7; else
+        echo "Sincronizamos Imagenes" >> $LOG
+        rsync -r -t -p -o -g -l -H -i -s /ruta/origen/Imagenes/ /mnt/nextcloud/Imagenes/ >> $LOG
+if [ $? -ne 0 ]; then echo "Error en la  sincronizacion" >> $LOG; exit 9; else
+        echo "Sincronizamos tools" >> $LOG
+        rsync -r -t -p -o -g -l -H -i -s /ruta/origen/tools/ /mnt/nextcloud/halley/ >> $LOG
+if [ $? -ne 0 ]; then echo "Error en la  sincronizacion" >> $LOG; exit 11; else
+        echo "Desmonta la unidad remota" >> $LOG
+        umount -l /mnt/nextcloud >> $LOG
+if [ $? -ne 0 ]; then echo "Error desmontando unidad remota" >> $LOG; exit 13; else
+        echo "Ejecutamos script remoto para permisos ficheros" >> $LOG
+        su - <USUARIO> -c "ssh <USUARIO>@<HOSTNAME> 'sudo /ruta/origen/scripts/permiso_ficheros_fisher_halley.sh'"
+if [ $? -ne 0 ]; then echo "Problemas con el cambio de permisos" >> $LOG; exit 15; else
+        echo "Sincronizacion finalizada con exito" >> $LOG
+fi; fi; fi; fi; fi; fi
+exit 0
+```
+
+## Version revisada
 
 ```bash
 #!/usr/bin/env bash
@@ -52,9 +97,23 @@ ssh <USUARIO>@<HOSTNAME> 'sudo /ruta/origen/scripts/permisos_nextcloud.sh'
 - Ejecutar `occ files:scan --path <USUARIO>/files` si aplica.
 - Mantener el cambio de permisos en un script remoto versionado y documentado.
 
+## Cambios y motivo
+
+| Cambio | Motivo |
+|---|---|
+| `trap` para desmontar | desmonta aunque falle un `rsync` |
+| rutas en variables | hace claro que se copia a un mount Nextcloud |
+| `rsync -n` recomendado | evita cambios inesperados en la nube |
+| revisar `occ files:scan` | Nextcloud puede no detectar cambios directos en `data/` |
+
+## Variante libra_scripts
+
+La variante `sync_files_a_nextcloud.sh` monta un destino Nextcloud, sincroniza `/ruta/origen/tools` hacia una carpeta remota y ejecuta un script remoto de permisos.
+
 <!--
 Fuentes consolidadas
 
 - `/tools/scripts/micron1`
 - `/tools/scripts/sync_files_a_nextcloud.sh`
+- `/tools/scripts/libra_scripts/sync_files_a_nextcloud.sh`
 -->

@@ -9,6 +9,18 @@ tags: [bash, proxmox, pbs, backup, pxar]
 
 Este script lanza backups con `proxmox-backup-client` de varias rutas origen hacia un repositorio PBS y ejecuta limpieza de memoria en el host remoto al finalizar.
 
+## Uso en la infraestructura
+
+Se usa para conservar configuracion del hipervisor y rutas de soporte en Proxmox Backup Server.
+
+| Rol | Servicio | Impacto si falla |
+|---|---|---|
+| Config hipervisor | Proxmox | Se complica reconstruir storage, red y jobs |
+| Backup externo | PBS | No hay copia versionada fuera del host |
+| Recuperacion | Laboratorio/VMs | Aumenta el tiempo de vuelta a servicio |
+
+Complementa los backups de VMs; no los sustituye.
+
 ## Ejecucion programada
 
 ```cron
@@ -24,7 +36,42 @@ Este script lanza backups con `proxmox-backup-client` de varias rutas origen hac
 5. Escribe resultado en log.
 6. Si termina correctamente, llama por SSH a `liberamemoria.sh` en el host remoto.
 
-## Version saneada
+## Script original anonimizado
+
+```bash
+#!/bin/bash
+LOG=/var/log/proxmox_backup_collar.log
+FECHA=D$(date +%Y%m%d)
+FILEIN='etc'
+FILEOUT='etc.'
+FILEIN1='tools'
+FILEOUT1='tools.'
+export PBS_PASSWORD_FILE=/ruta/segura/proxmox_client
+export PROXMOX_BACKUP_FINGERPRINT='<FINGERPRINT>'
+
+echo "Inicia backups de los filesystems" > $LOG
+proxmox-backup-client backup \
+        collar-etc.pxar:/ruta/origen/etc \
+        collar-IMGs.pxar:/ruta/origen/IMGs \
+        collar-Descargas.pxar:/ruta/origen/Descargas \
+        collar-tools.pxar:/ruta/origen/tools \
+        collar-cursos.pxar:/ruta/origen/cursos \
+        collar-multimedia_base.pxar:/ruta/origen/multimedia_base \
+        collar-site-web.pxar:/ruta/origen/site-web \
+        --repository <USUARIO>@pbs@<HOSTNAME>:<DATASTORE> >> $LOG
+
+if [ $? -ne 0 ]
+then
+        echo "Error en el backup" >> $LOG
+        exit 2
+else
+        echo "Backups Finalizados" >> $LOG
+        ssh <USUARIO_ADMIN>@<HOSTNAME> "/ruta/origen/scripts/liberamemoria.sh"
+fi
+exit 0
+```
+
+## Version revisada
 
 ```bash
 #!/usr/bin/env bash
@@ -53,6 +100,15 @@ ssh <USUARIO_ADMIN>@<HOSTNAME> "/ruta/origen/scripts/liberamemoria.sh"
 - Documentar `.pxarexclude` para rutas que no deban respaldarse.
 - Probar restauracion de un snapshot periodicamente.
 - Evitar SSH como root si puede usarse un usuario dedicado.
+
+## Cambios y motivo
+
+| Cambio | Motivo |
+|---|---|
+| variables para repositorio PBS | facilita cambiar datastore o host |
+| validar credenciales y fingerprint | falla antes de iniciar backup largo |
+| separar rutas en lista | simplifica revisar que entra en PBS |
+| no mezclar limpieza remota con backup | evita que fallo de limpieza o SSH marque ambiguamente el resultado |
 
 <!--
 Fuentes consolidadas

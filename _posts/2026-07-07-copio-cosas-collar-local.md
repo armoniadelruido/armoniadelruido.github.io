@@ -9,6 +9,18 @@ tags: [bash, rsync, backup, homelab, logs]
 
 Este script sincroniza varias rutas origen locales hacia un destino local de backup usando `rsync` y log diario.
 
+## Uso en la infraestructura
+
+Se usa para copias locales rapidas de rutas personales o de sistema antes de enviarlas a otro destino.
+
+| Rol | Servicio | Impacto si falla |
+|---|---|---|
+| Backup local | Documentos/configs | Se pierde copia rapida en el mismo entorno |
+| Pre-stage | Backups externos | Las tareas posteriores no tienen origen actualizado |
+| Auditoria | Logs de copia | No queda trazabilidad de errores rsync |
+
+Es una capa local; no protege por si sola ante perdida completa del host.
+
 ## Ejecucion programada
 
 ```cron
@@ -25,7 +37,43 @@ Este script sincroniza varias rutas origen locales hacia un destino local de bac
 6. Sincroniza descargas, herramientas, configuracion y site web hacia destino de backup.
 7. Sale con codigos diferentes segun el bloque que falle.
 
-## Version parametrizada
+## Script original anonimizado
+
+```bash
+#!/bin/bash
+LOG=/var/log/copio_cosas_collar_local.log
+
+echo "Inicia la sincronizacion del collar" > $LOG
+echo "Inicia la sincronizacion de Imagenes" >> $LOG
+rsync -r -t -p -o -g -l -H -i -s /ruta/origen/Imagenes /ruta/destino/multimedia_base/ >> $LOG
+if [ $? -ne 0 ]; then echo "Error en la  sincronizacion de Imagenes" >> $LOG; exit 5; else
+echo "Inicia la sincronizacion de Musica" >> $LOG
+rsync -r -t -p -o -g -l -H -i -s /ruta/origen/Musica /ruta/destino/multimedia_base/ >> $LOG
+if [ $? -ne 0 ]; then echo "Error en la  sincronizacion de Musica" >> $LOG; exit 5; else
+echo "Inicia la sincronizacion de Videos" >> $LOG
+rsync -r -t -p -o -g -l -H -i -s /ruta/origen/Videos /ruta/destino/multimedia_base/ >> $LOG
+if [ $? -ne 0 ]; then echo "Error en la  sincronizacion de Videos" >> $LOG; exit 7; else
+echo "Inicia la sincronizacion de Documentos" >> $LOG
+rsync -r -t -p -o -g -l -H -i -s /ruta/origen/Documentos /ruta/destino/multimedia_base/ >> $LOG
+if [ $? -ne 0 ]; then echo "Error en la  sincronizacion de Documentos" >> $LOG; exit 9; else
+echo "Inicia la sincronizacion de Descargas" >> $LOG
+rsync -r -t -p -o -g -l -H -i -s /ruta/origen/Descargas /ruta/destino/ >> $LOG
+if [ $? -ne 0 ]; then echo "Error en la  sincronizacion de Descargas" >> $LOG; exit 11; else
+echo "Inicia la sincronizacion de tools" >> $LOG
+rsync -r -t -p -o -g -l -H -i -s /ruta/origen/tools /ruta/destino/ >> $LOG
+if [ $? -ne 0 ]; then echo "Error en la  sincronizacion de tools" >> $LOG; exit 13; else
+echo "Inicia la sincronizacion de etc" >> $LOG
+rsync -r -t -p -o -g -l -H -i -s /ruta/origen/etc /ruta/destino/ >> $LOG
+if [ $? -ne 0 ]; then echo "Error en la  sincronizacion de etc" >> $LOG; exit 15; else
+echo "Inicia la sincronizacion de site-web" >> $LOG
+rsync -r -t -p -o -g -l -H -i -s /ruta/origen/site-web /ruta/destino/ >> $LOG
+if [ $? -ne 0 ]; then echo "Error en la  sincronizacion de site-web" >> $LOG; exit 17; else
+echo "Finaliza la sincronizacion" >> $LOG
+fi; fi; fi; fi; fi; fi; fi; fi
+exit 0
+```
+
+## Version revisada parametrizada
 
 ```bash
 #!/usr/bin/env bash
@@ -58,6 +106,15 @@ done
 - `--dry-run` es recomendable para probar cambios.
 - Las rutas origen/destino deben estar entrecomilladas.
 - Si se usa `--delete`, confirmar que el destino es correcto.
+
+## Cambios y motivo
+
+| Cambio | Motivo |
+|---|---|
+| lista de rutas | evita repetir bloques `rsync` casi identicos |
+| `for` sobre origenes | simplifica añadir o quitar carpetas |
+| comillas en rutas | soporta nombres con espacios o caracteres especiales |
+| log consistente | reduce redirecciones repetidas y facilita revisar errores |
 
 <!--
 Fuentes consolidadas

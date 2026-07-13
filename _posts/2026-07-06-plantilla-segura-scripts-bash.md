@@ -83,6 +83,53 @@ fi
 
 - `liberamemoria.sh`: ejemplo de mantenimiento simple con privilegios de root.
 - `depura_ficheros.sh`: ejemplo de limpieza programada de ficheros antiguos.
+- `micron_nextcloud`: ejemplo de crontab operativo con scripts activos y comentados.
+- `depuro_neptuno_90.sh`: ejemplo de retencion por carpetas y antiguedad.
+
+## Patron logline
+
+```bash
+LOG="/var/log/script_$(date +%Y%m%d).log"
+
+logline() {
+  printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*" >> "$LOG"
+}
+```
+
+## Patrones detectados en libra_scripts
+
+- Usar `trap` para desmontar recursos aunque falle una sincronizacion.
+- Evitar `sed -i` sobre configuraciones sin copia previa.
+- Extraer tokens y API keys a `/ruta/segura/...`.
+- Preferir scripts parametrizados frente a duplicar el mismo codigo por host o registro DNS.
+
+## Lockfile
+
+```bash
+LOCK="/run/$(basename "$0").lock"
+exec 9>"$LOCK"
+flock -n 9 || { echo "Ya hay una ejecucion activa" >&2; exit 1; }
+```
+
+## Carga de entorno
+
+```bash
+ENV_FILE="/ruta/segura/script.env"
+if [[ -f "$ENV_FILE" ]]; then
+  set -a
+  . "$ENV_FILE"
+  set +a
+fi
+```
+
+## Dependencias
+
+```bash
+need() { command -v "$1" >/dev/null 2>&1 || { echo "Falta $1" >&2; exit 2; }; }
+need curl
+need jq
+need rsync
+```
 
 <!--
 Fuentes consolidadas

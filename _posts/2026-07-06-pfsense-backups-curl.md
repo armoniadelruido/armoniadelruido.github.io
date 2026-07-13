@@ -80,6 +80,7 @@ find "$BACKUP_DIR" -type f -name 'pfsense_*.xml' -mtime +15 -delete
 
 - `pfsense_backups_auto.sh`: automatiza login, descarga de XML y llamada a depuracion.
 - `depura_ficheros.sh`: elimina backups antiguos en rutas destino.
+- `pfsense-import-certificate.php`: importa certificados desde CLI, actualiza GUI/HAProxy y reinicia servicios asociados.
 
 <!--
 Fuentes consolidadas

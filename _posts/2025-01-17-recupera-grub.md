@@ -79,4 +79,13 @@ fsck -f /dev/<DISPOSITIVO>
 mount -o remount,rw /
 ```
 
-<!-- Fuentes integradas o revisadas: `grub_root`, `reparar_grub`, `recuperar grub sistema.txt`, `Cifrar dispositivos con LUKS`, `InstalarSO con cifrado`, `fallo fsck error onboot`. -->
+<!--
+Fuentes consolidadas
+
+- `grub_root`
+- `reparar_grub`
+- `recuperar grub sistema.txt`
+- `Cifrar dispositivos con LUKS`
+- `InstalarSO con cifrado`
+- `fallo fsck error onboot`
+-->
