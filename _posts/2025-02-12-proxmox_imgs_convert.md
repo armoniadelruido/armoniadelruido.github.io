@@ -9,6 +9,8 @@ tags: [sysdamin, shell, bash, scripting, proxmox, qm, vmdk, qcow2 ]
 
 Como convertir un disco de vmare ova, a un disco que proxmox pueda usar:
 
+Antes de asociar el disco, crea la VM destino y confirma que el VMID, el storage y el bus son correctos. `qm set` conecta el disco a esa VM; si ya hay algo en `scsi0` o `virtio0`, puedes cambiar la configuracion existente sin querer. Conserva el `.vmdk` original hasta probar arranque y acceso a datos.
+
 ```bash
 tar xvf /tmp/VMware-Workstation.ova
 qemu-img convert -f vmdk -O qcow2 VMware-Workstation-0.vmdk /mnt/pve/storage01/images/406/vm-406-disk-0.qcow2

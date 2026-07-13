@@ -9,6 +9,10 @@ tags: [Certificados, ssl, https, apache, openssl]
 Algunas veces tenemos que crear un certificado para varios dominios, o simplemente para poner otro CN en el certificado. 
 Los navegadores marcaran como inseguro un site, si un certificado no tiene Subject Alternative Name (SAN).
 
+## Claves privadas y certificados
+
+Al quitar la passphrase de una clave privada, el servicio arranca de forma mas comoda, pero la clave queda mas sensible. Guarda estos ficheros con permisos restrictivos, normalmente `600`, propietario correcto y nunca en repositorios. Los ejemplos son perfectos para laboratorio o certificados internos; para servicios publicados conviene usar una CA reconocida o el procedimiento corporativo.
+
 
 ## Vamos al lío.
 

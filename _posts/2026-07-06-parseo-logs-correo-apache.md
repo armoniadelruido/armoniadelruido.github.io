@@ -9,6 +9,8 @@ tags: [logs, apache, postfix, dovecot, awk, grep, bash]
 
 Este post recopila comandos para investigar accesos, autenticaciones fallidas y origenes mas frecuentes en logs de correo y Apache.
 
+Estos comandos son para una primera mirada rapida, no para cerrar una investigacion por si solos. En Apache, `$1` suele ser la IP origen y `$9` el codigo HTTP, pero puede variar si cambia el formato del log o si hay proxy delante. Antes de compartir resultados, oculta IPs y conserva el log original.
+
 ## Top IPs en Apache
 
 ```bash

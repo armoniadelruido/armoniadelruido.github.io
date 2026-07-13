@@ -9,6 +9,16 @@ tags: [sysadmin, as400, ibmi, mainframe, operacion]
 
 Este post cubre operaciones basicas en AS400/IBM i: revision de sistema, jobs, colas de mensajes, spool, librerias y usuarios.
 
+La mayoria de comandos de esta chuleta son de consulta, pero muchas pantallas permiten lanzar acciones desde menus. Usalos para mirar estado y diagnosticar; si vas a modificar algo, confirma procedimiento, autorizacion y objeto exacto.
+
+| Comando | Para que sirve | Cuando usarlo |
+|---|---|---|
+| `WRKSYSSTS` | Estado general del sistema | Primera revision de carga y recursos |
+| `WRKACTJOB` | Jobs activos | Ver procesos consumiendo CPU o esperando |
+| `WRKJOB` | Detalle de un job | Investigar un job concreto |
+| `DSPJOBLOG` | Log de job | Revisar errores o mensajes |
+| `WRKUSRPRF` | Perfiles de usuario | Revisar usuarios con cuidado antes de modificar |
+
 ## Sistema y jobs
 
 ```text

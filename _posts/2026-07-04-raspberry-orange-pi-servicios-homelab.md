@@ -9,6 +9,8 @@ tags: [raspberry, orangepi, armbian, pihole, wordpress, nextcloud, homelab]
 
 Este post cubre ajustes de Raspberry/Orange Pi, preparacion de servicios web ligeros, WiFi, WordPress, Nextcloud y optimizaciones para alargar la vida de la SD.
 
+En placas pequeñas, quitar swap o desactivar servicios puede mejorar vida de SD y consumo, pero tambien puede dejar el sistema sin margen si falta RAM o si dependes de descubrimiento de red, perifericos o gestion grafica. Desactiva solo lo que sepas que no usas y prueba tras reiniciar.
+
 ## `/boot/config.txt`
 
 ```ini

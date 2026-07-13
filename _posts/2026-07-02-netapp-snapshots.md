@@ -9,6 +9,8 @@ tags: [sysadmin, netapp, storage, snapshots, cabinas]
 
 Este post sirve para revisar estado de cabinas NetApp, consultar espacio, gestionar snapshots y preparar restauraciones puntuales.
 
+Antes de borrar o restaurar snapshots, confirma SVM, volumen y snapshot exacto. Siempre que puedas, prefiere restaurar un fichero concreto antes que revertir un volumen entero: `snapshot restore` puede volver atras datos que otros usuarios han cambiado despues del snapshot.
+
 ## Comprobaciones generales
 
 ```bash

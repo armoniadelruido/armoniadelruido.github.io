@@ -7,6 +7,9 @@ tags: [sysdamin, linux, yum, swap, lvm, tar, compress]
 
 # Survivor básico 1 
 Habra mas como este survivor, quizas cuando acabe de pasarlos todos a la web, los unifique.
+
+Muchas recetas de este post son para salir de una incidencia, pero tocan partes delicadas: particiones, LVM, swap, root password o arranque. Antes de ejecutar nada, identifica el disco correcto, confirma backup/snapshot y, si estas en rescue, monta solo lo necesario. Un `fdisk`, `partx` o cambio de LVM aplicado al disco equivocado puede complicar bastante la recuperacion.
+
 Lanzar script al inicio:
 ```bash
 Dentro de

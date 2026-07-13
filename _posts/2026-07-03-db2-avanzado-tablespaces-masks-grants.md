@@ -9,6 +9,8 @@ tags: [sysadmin, db2, tablespaces, grants, masks, export, import]
 
 Este post cubre tareas DB2 de segundo nivel: revision de tablespaces, grants, mascaras, movimientos de tablas, export/import y runstats.
 
+Antes de ejecutar cambios, confirma backup disponible, espacio en tablespaces, ventana acordada y permisos que vas a conceder. Para `admin_move_table`, `import` o grants amplios, mejor probar primero en un entorno no productivo y guardar salida de cada paso.
+
 ## Tablespaces
 
 ```bash

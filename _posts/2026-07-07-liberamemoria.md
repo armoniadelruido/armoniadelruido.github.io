@@ -33,7 +33,7 @@ Debe verse como alivio puntual, no como sustituto de dimensionar memoria o corre
 2. Compara el valor con un umbral en MB.
 3. Si la memoria libre es inferior o igual al umbral, escribe `3` en `/proc/sys/vm/drop_caches`.
 
-## Script original anonimizado
+## Script original
 
 ```bash
 #!/bin/bash

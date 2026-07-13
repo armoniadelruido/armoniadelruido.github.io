@@ -29,7 +29,7 @@ Si DDNS funciona y el perfil usa FQDN, este script pasa a ser un respaldo operat
 4. Sustituye la linea `remote`.
 5. Envia el `.ovpn` actualizado con `exim4`.
 
-## Script original anonimizado
+## Script original
 
 ```bash
 #!/bin/bash

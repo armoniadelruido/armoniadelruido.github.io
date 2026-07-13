@@ -7,6 +7,8 @@ tags: [sysdamin, sql, MariaDB, Mysql, postgress, survivor]
 
 ## Comando útiles MySQL.
 
+Algunos comandos de este post son de emergencia o administracion avanzada. Usa `--skip-grant-tables` solo si hace falta recuperar acceso, idealmente con red cerrada. Antes de tocar usuarios, grants o borrar bases, haz backup y limita permisos por host en vez de abrir a `%` salvo laboratorio.
+
 Mostrar usuarios de una base de datos:
 ```bash
 MySQL     : SELECT User,Host FROM mysql.user;

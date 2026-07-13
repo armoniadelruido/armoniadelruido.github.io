@@ -38,7 +38,7 @@ Depende de que el destino remoto monte correctamente y de que `rsync` conserve p
 7. Sincroniza `/ruta/origen/nextcloud-data` hacia `/mnt/destino/nextcloud-backup`.
 8. Desmonta el destino remoto.
 
-## Script original anonimizado
+## Script original
 
 ```bash
 #!/bin/bash

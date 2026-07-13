@@ -7,6 +7,10 @@ tags: [sysdamin, debian, apt, sed, updates]
 
 # Vamos a pasar de una version de debian a otra.  
 
+## Checklist antes del upgrade
+
+Antes de un upgrade mayor de Debian, haz backup o snapshot, confirma que tienes acceso por consola si se cae SSH, revisa repositorios de terceros y comprueba espacio libre en `/boot` y `/`. Guarda una copia de `/etc/apt/sources.list*` y lee con calma los paquetes que `apt` propone eliminar antes de aceptar.
+
 Actualizamos nuestro sistema primero de todo:
 ```bash
 sudo apt-get update

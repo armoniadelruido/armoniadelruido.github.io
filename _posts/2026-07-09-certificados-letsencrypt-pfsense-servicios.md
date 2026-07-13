@@ -21,7 +21,7 @@ Se usa para mantener TLS valido en servicios publicados y en el frontal pfSense/
 
 Depende del token DNS de Cloudflare, de permisos sobre claves privadas y de conectividad SSH hacia los hosts consumidores.
 
-## Script original anonimizado
+## Script original
 
 ```bash
 #!/bine/bash

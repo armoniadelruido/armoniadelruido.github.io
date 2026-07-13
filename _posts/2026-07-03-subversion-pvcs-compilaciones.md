@@ -9,6 +9,8 @@ tags: [sysadmin, svn, subversion, pvcs, cobol, compilacion]
 
 Este post ayuda a trabajar con repositorios legacy, revisar cambios en Subversion/PVCS y documentar compilaciones o entregas tecnicas.
 
+Antes de entregar, revisa `svn diff`, asocia el cambio a un ticket si aplica, compila en limpio y valida el binario generado. Crea tags solo cuando la version final este confirmada; si se etiqueta demasiado pronto, luego cuesta saber que fue realmente a produccion.
+
 ## Subversion
 
 ```bash

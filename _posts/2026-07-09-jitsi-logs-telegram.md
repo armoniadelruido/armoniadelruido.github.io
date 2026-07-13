@@ -21,7 +21,9 @@ Se usa para tener visibilidad basica del uso de Jitsi sin entrar en analitica pe
 
 Es util para comprobaciones diarias o alertas simples, no para metricas historicas completas.
 
-## Script original anonimizado
+El parseo depende del formato actual del access log. Si cambia Apache, proxy o Jitsi, campos como IP, fecha o URL pueden moverse. Antes de automatizar el envio a Telegram, revisa el fichero generado y evita mandar IPs o nombres de sala sensibles a canales compartidos. Si hay muchas lineas, mejor agrupar un resumen para no saturar el bot.
+
+## Script original
 
 ```bash
 #!/bin/bash
@@ -29,7 +31,7 @@ Es util para comprobaciones diarias o alertas simples, no para metricas historic
 grep http-bind?room= /var/log/apache2/jitsi/access.log|awk '{print ($1,$2,$3,$4,$7)}'|awk -F- '{print ($1,$4)}'|awk -F? '{print ($1,$2)}' |awk '{print ($1,$3)}'|grep -v <IP_INTERNA>|sort -u > /var/log/apache2/jitsi/acces_rooms.log
 ```
 
-## Bot original anonimizado
+## Bot original
 
 ```bash
 #!/bin/bash

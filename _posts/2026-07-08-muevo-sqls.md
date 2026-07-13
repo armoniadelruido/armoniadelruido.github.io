@@ -36,7 +36,7 @@ No debe borrar dumps locales hasta confirmar que el tarball llego al destino.
 5. Desmonta el destino.
 6. Elimina los dumps SQL del origen local.
 
-## Script original anonimizado
+## Script original
 
 ```bash
 #!/bin/bash

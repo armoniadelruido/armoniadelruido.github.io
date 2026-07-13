@@ -9,6 +9,8 @@ tags: [sysadmin, nextcloud, onlyoffice, collabora, apache, nginx, php, ssl]
 
 Este post cubre instalaciones Nextcloud/OnlyOffice, ajustes de PHP, cambio de directorio de datos, modo mantenimiento y publicacion mediante proxy web.
 
+Cuando muevas `datadirectory`, toques permisos o actualices rutas en BBDD, activa mantenimiento y ten backup de datos y SQL. Prueba cambios de permisos en un subconjunto si puedes. Con OnlyOffice o Collabora, confirma que el puerto publicado no pisa otro servicio y deja claro como volver atras si el contenedor no arranca.
+
 ## Paquetes base
 
 ```bash

@@ -21,7 +21,7 @@ Se usa como herramienta de operacion cuando hay bloqueos, falsos positivos o sos
 
 Debe ejecutarse con cuidado: desbanear una IP elimina una proteccion activa.
 
-## Script original de informe anonimizado
+## Script original de informe
 
 ```bash
 #!/bin/bash
@@ -50,7 +50,7 @@ fail2ban-client status apache-docserver-ddos
 exit 0
 ```
 
-## Script original de desbaneo anonimizado
+## Script original de desbaneo
 
 ```bash
 #!/bin/bash

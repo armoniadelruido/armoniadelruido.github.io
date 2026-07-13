@@ -38,7 +38,7 @@ Es critico antes de cambios de reglas, actualizaciones o renovacion de certifica
 6. Guarda el fichero en una ruta destino de backups.
 7. Llama a `depura_ficheros.sh` para borrar backups antiguos.
 
-## Script original anonimizado
+## Script original
 
 ```bash
 curl -L -k --cookie-jar cookies.txt \

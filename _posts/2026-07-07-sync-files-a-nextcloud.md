@@ -37,7 +37,7 @@ Debe coordinarse con escaneos `occ` si se modifican ficheros directamente en `da
 6. Desmonta el punto de montaje.
 7. Lanza por SSH un script remoto de permisos.
 
-## Script original anonimizado
+## Script original
 
 ```bash
 #!/bin/bash

@@ -37,7 +37,7 @@ Es una capa local; no protege por si sola ante perdida completa del host.
 6. Sincroniza descargas, herramientas, configuracion y site web hacia destino de backup.
 7. Sale con codigos diferentes segun el bloque que falle.
 
-## Script original anonimizado
+## Script original
 
 ```bash
 #!/bin/bash

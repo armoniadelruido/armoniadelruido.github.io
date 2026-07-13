@@ -7,6 +7,11 @@ tags: [armbian, raspbian ,sd, dd, clone]
 
 # Vamos a clonar cosas.
 Muchas veces necesitamos hacer una imagen exacta de una tarjeta sd, de un disco, de lo que sea. 
+
+## Mucho cuidado con `dd`
+
+`dd` no pregunta y puede borrar el disco destino entero. Antes de lanzarlo, identifica origen y destino con `lsblk -o NAME,SIZE,MODEL,MOUNTPOINTS`, desmonta particiones del destino y revisa dos veces `if=` y `of=`. Si hay dudas, para un momento: es mejor perder un minuto comprobando que clonar el disco equivocado.
+
 Vamos al lío:
 
 ```bash

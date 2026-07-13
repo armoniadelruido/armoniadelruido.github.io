@@ -6,6 +6,8 @@ tags: [sysdamin, IA]
 ---
 
 ## Vamos a instalar OLLAMA en una maquina virtual con ubuntu server 24 instalado.
+Antes de instalar drivers AMD/ROCm o hacer `dist-upgrade`, merece la pena tener snapshot o forma sencilla de volver atras. Revisa compatibilidad de GPU, kernel y Ubuntu. Si publicas Ollama u Open WebUI en puertos como `11434` o `3000`, limita firewall o usa `localhost` si no quieres exponerlos a toda la red.
+
 Instalamos los drivers de nuestra AMD:
 ```bash
 wget https://repo.radeon.com/amdgpu-install/6.3.2/ubuntu/noble/amdgpu-install_6.3.60302-1_all.deb
@@ -50,4 +52,3 @@ Ahora lanzamos el docker con Open Webui:
 docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
 
 ```
-

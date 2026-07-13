@@ -9,6 +9,8 @@ tags: [sftp, rsync, backup, homelab, cron]
 
 Este post documenta un flujo de sincronizacion con SFTP y `rsync`: descarga, subida, borrado controlado, historico y logs.
 
+Antes de activar borrados remotos, prueba el flujo sin `rm *` y confirma que los ficheros han llegado completos al destino. `rsync --remove-source-files` elimina del origen lo que copia correctamente, asi que usalo solo cuando el destino ya sea la copia valida. Si hay dudas, empieza con un subconjunto pequeño y deja el borrado para una segunda fase controlada.
+
 ## Flujo recomendado
 
 1. Descargar ficheros remotos a directorio temporal.

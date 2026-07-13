@@ -35,7 +35,7 @@ Debe ejecutarse fuera de la ventana de dumps SQL para evitar mover copias a medi
 4. Mueve cada tarball a su carpeta destino.
 5. Llama a `depuro_neptuno_90.sh` para depurar copias antiguas.
 
-## Script original anonimizado
+## Script original
 
 ```bash
 #!/bin/bash

@@ -7,6 +7,8 @@ tags: [sysdamin, update, upgrade, yum, reposync, createrepo, cves, parches, segu
 
 ## Vamos a crear un servidor para tener nuestros repositorios local, nos permitirá ser mas ágiles para parchear y descargar actualizaciones, y mas cosas....
 
+`gpgcheck=0` y `sslverify=0` pueden ayudar en pruebas o laboratorios, pero reducen seguridad. En un entorno serio, intenta mantener GPG y TLS activos con certificados validos. Documenta que repos sincronizas, cuanto espacio ocupan y que permisos tiene el servidor web que los publica.
+
 Nos suscribimos a red hat en el servidor que usaremos como repositorio:
 
 ```bash

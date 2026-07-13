@@ -9,6 +9,8 @@ tags: [sysadmin, ibm-mq, mq, colas, brokers, middleware]
 
 Este post sirve para revisar gestores de colas, consultar profundidad de colas, arrancar/parar canales y hacer comprobaciones basicas de brokers.
 
+Arrancar o parar gestores, canales o brokers afecta directamente a productores y consumidores. Antes de parar nada, mira profundidad de colas, estado de canales y si hay procesos conectados. Si es una intervencion, deja apuntado el estado previo para poder comparar al terminar.
+
 ## Gestores de colas
 
 ```bash

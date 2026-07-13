@@ -21,7 +21,7 @@ Es el planificador central de mantenimiento del host Nextcloud. Coordina tareas 
 
 Debe revisarse cuando se cambia una ruta, se mueve un script o se modifica la ventana de backups.
 
-## Crontab original anonimizado
+## Crontab original
 
 ```cron
 0 0,9,10,12,14,16,18,20,22,23 * * * /ruta/origen/scripts/liberamemoria.sh

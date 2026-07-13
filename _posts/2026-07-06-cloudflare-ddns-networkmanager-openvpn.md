@@ -9,6 +9,8 @@ tags: [cloudflare, ddns, dns, vpn, networkmanager, bash]
 
 Este post cubre un patron para consultar registros DNS en Cloudflare, comparar la IP publica actual y actualizar perfiles OpenVPN gestionados por NetworkManager.
 
+Modificar un perfil con `nmcli connection modify` toca la configuracion guardada por NetworkManager. Antes de aplicarlo, revisa el valor actual con `nmcli connection show "$NM_CONNECTION"` y guarda una copia o export del perfil. Si la VPN ya usa un FQDN estable, probablemente no necesites cambiar el `remote`.
+
 ## Variables
 
 ```bash

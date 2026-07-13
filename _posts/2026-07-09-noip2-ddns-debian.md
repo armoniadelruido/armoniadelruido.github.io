@@ -21,6 +21,8 @@ Se documenta como alternativa o pieza historica de DDNS para hosts Debian.
 
 En la infraestructura actual encaja como referencia de DDNS clasico frente al enfoque por API de Cloudflare.
 
+Usa estos comandos solo en sistemas donde `noip2` se haya instalado manualmente en `/usr/local/bin`. En Debian moderno suele ser mas limpio crear una unidad `systemd`; el script init queda para instalaciones antiguas. Despues de lanzar el daemon, comprueba con `noip2 -S` que solo hay una instancia activa y que el host configurado es el correcto.
+
 ## Comandos utiles
 
 ```bash

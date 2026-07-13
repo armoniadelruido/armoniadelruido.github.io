@@ -9,6 +9,8 @@ tags: [sysadmin, oracle, listener, wallet, expdp, impdp, restore]
 
 Este post ayuda a revisar listeners, gestionar wallets, lanzar exports/imports, comprobar usuarios y preparar tareas basicas de recuperacion Oracle.
 
+Parar el listener corta nuevas conexiones, aunque sesiones ya abiertas pueden seguir dependiendo de la configuracion. `impdp` puede crear o sobrescribir objetos segun parametros, asi que revisa usuario, schema y destino. Las wallets contienen material sensible: permisos restrictivos y nada de copiarlas sin control.
+
 ## Listener
 
 ```bash

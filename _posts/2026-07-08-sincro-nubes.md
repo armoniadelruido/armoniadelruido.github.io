@@ -37,7 +37,7 @@ La entrada aparece comentada en `micron_nextcloud`:
 4. Lanza `import_sql.sh` por SSH en el host remoto.
 5. Desmonta el destino.
 
-## Script original anonimizado
+## Script original
 
 ```bash
 #!/bin/bash

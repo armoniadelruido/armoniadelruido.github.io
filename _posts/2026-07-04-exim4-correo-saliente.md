@@ -9,6 +9,8 @@ tags: [sysadmin, exim4, smtp, correo, smarthost]
 
 Este post sirve para preparar envio de correo saliente desde Debian usando Exim4, smarthost SMTP y pruebas basicas de entrega.
 
+Guarda credenciales SMTP con permisos restrictivos y revisa `/var/log/exim4/mainlog` despues de reiniciar para confirmar que no hay rechazos de autenticacion. Si envias adjuntos sensibles, como perfiles VPN, hazlo solo dentro de un entorno de confianza o cifra el fichero antes de mandarlo.
+
 ## Reconfigurar Exim4
 
 ```bash

@@ -13,6 +13,8 @@ Este post resume requisitos y comprobaciones previas para usar Airgeddon en audi
 
 Airgeddon debe usarse solo en redes propias o entornos donde exista autorizacion explicita para realizar pruebas.
 
+El modo monitor y `airmon-ng check kill` pueden cortar la WiFi del propio equipo. Si estas conectado por esa interfaz, perderas la sesion. Mejor usar consola local o una segunda conexion, y al terminar vuelve a modo gestionado y reinicia NetworkManager si hace falta.
+
 ## Requisitos habituales
 
 ```bash

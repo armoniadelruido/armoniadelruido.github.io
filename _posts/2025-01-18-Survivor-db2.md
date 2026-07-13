@@ -7,6 +7,8 @@ tags: [sysdamin, bbdd, base de datos db2, tablespaces, survivor]
 
 ## Comando útiles de db2.
 
+Estos comandos son muy utiles en incidencias, pero conviene preparar el terreno: confirma instancia activa, base correcta, backup valido, logs disponibles y punto de recuperacion. En produccion, coordina parada o conexiones activas y guarda la salida de cada paso para poder reconstruir lo que se hizo.
+
 Mostrar bases de datos disponibles:
 ```bash
 db2 list active databases

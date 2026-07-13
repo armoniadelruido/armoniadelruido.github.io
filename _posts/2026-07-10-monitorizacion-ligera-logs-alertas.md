@@ -22,6 +22,8 @@ Este post cubre vigilancia basica sin desplegar un stack pesado. Sirve para dete
 
 No sustituye a una monitorizacion completa; es la primera linea para hosts pequenos o servicios caseros.
 
+Toma estos comandos como señales iniciales. Muchas peticiones 404 pueden ser bots normales, y muchas IPs repetidas pueden venir de un proxy o CDN. Antes de alertar, compara con una linea base de dias anteriores y revisa el servicio afectado. Para Telegram, envia mensajes accionables: host, metrica que cambio y donde mirar el log completo.
+
 ## Patron recomendado: Apache IPs y codigos
 
 ```bash

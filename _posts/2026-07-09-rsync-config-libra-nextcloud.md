@@ -21,7 +21,7 @@ Se usa para conservar scripts y configuraciones de un host de servicios en una u
 
 Es backup de configuracion y soporte operativo; no sustituye el backup completo de datos.
 
-## Script original sync Nextcloud anonimizado
+## Script original sync Nextcloud
 
 ```bash
 #!/bin/bash
@@ -64,7 +64,7 @@ fi
 exit 0
 ```
 
-## Script original recuperar configuracion anonimizado
+## Script original recuperar configuracion
 
 ```bash
 #!/bin/bash

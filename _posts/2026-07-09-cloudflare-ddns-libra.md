@@ -29,7 +29,7 @@ Es una pieza de perimetro: debe ejecutarse antes de validar VPN o certificados.
 4. Actualiza registros DNS mediante la API de Cloudflare.
 5. Regenera el cliente OpenVPN con la IP nueva.
 
-## Script original anonimizado
+## Script original
 
 ```bash
 #!/bin/bash
@@ -53,7 +53,7 @@ if [[ $IPVIEJA != $IPPUBLICA ]]
 fi
 ```
 
-## Script original Cloudflare anonimizado
+## Script original Cloudflare
 
 ```bash
 #!/bin/bash

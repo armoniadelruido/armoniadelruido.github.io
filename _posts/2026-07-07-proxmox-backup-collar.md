@@ -36,7 +36,7 @@ Complementa los backups de VMs; no los sustituye.
 5. Escribe resultado en log.
 6. Si termina correctamente, llama por SSH a `liberamemoria.sh` en el host remoto.
 
-## Script original anonimizado
+## Script original
 
 ```bash
 #!/bin/bash

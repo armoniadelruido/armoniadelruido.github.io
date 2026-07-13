@@ -36,7 +36,7 @@ Se llama desde:
 3. Elimina ficheros con mas de 15 dias.
 4. Registra errores con codigos de salida diferentes por carpeta.
 
-## Script original anonimizado
+## Script original
 
 ```bash
 #!/bin/bash

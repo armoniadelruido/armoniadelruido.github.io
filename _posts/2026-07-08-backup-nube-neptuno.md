@@ -36,7 +36,7 @@ La entrada aparece comentada en `micron_nextcloud`:
 3. Entra al directorio destino.
 4. Desmonta el destino.
 
-## Script original anonimizado
+## Script original
 
 ```bash
 #!/bin/bash

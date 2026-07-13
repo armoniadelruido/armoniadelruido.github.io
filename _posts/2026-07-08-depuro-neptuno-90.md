@@ -34,7 +34,7 @@ Es una tarea sensible: antes de activar `-delete`, conviene probar el mismo `fin
 3. Borra `data` con mas de 59 dias.
 4. Registra errores por bloque.
 
-## Script original anonimizado
+## Script original
 
 ```bash
 #!/bin/bash

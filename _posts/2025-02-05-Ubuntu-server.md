@@ -7,6 +7,9 @@ tags: [sysdamin, ubuntu, netplan, ip, ss]
 
 ## Cuando instalamos Ubuntu Server minimal, nos encontramos con que no tiene asignada la parametrización de la interfaz de red.
 Se configura con netplan:
+
+Si estas conectado por SSH, usa primero `netplan try`: te da una ventana para confirmar y revierte si pierdes conectividad. Revisa bien la indentacion YAML, gateway y DNS antes de aplicar. Un espacio mal puesto puede dejar la interfaz sin configuracion.
+
 ```bash
 vi /etc/netplan/00-installer-config.yaml
 

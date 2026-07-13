@@ -9,6 +9,8 @@ tags: [sysadmin, tsm, backup, restore, scheduler, veeam]
 
 Este post cubre comprobaciones de TSM/IBM Spectrum Protect, revision de schedules, consulta de backups y restores operativos.
 
+Antes de restaurar, confirma ruta origen, destino, espacio libre y si vas a sobrescribir contenido. Para restores recursivos, es mas tranquilo probar primero en una ruta temporal y comparar. Si vas a reiniciar el scheduler, hazlo cuando no haya jobs activos o en una ventana controlada.
+
 ## Estado del scheduler
 
 ```bash

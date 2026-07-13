@@ -21,7 +21,7 @@ Se usa como mantenimiento puntual en hosts pequenos que ejecutan servicios web, 
 
 No sustituye ampliar RAM, corregir fugas o ajustar servicios; solo ayuda a operaciones puntuales.
 
-## Script original de memoria anonimizado
+## Script original de memoria
 
 ```bash
 #!/bin/bash
@@ -35,7 +35,7 @@ else
 fi
 ```
 
-## Script original de swap anonimizado
+## Script original de swap
 
 ```bash
 #!/bin/bash

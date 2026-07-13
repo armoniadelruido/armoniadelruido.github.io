@@ -9,6 +9,8 @@ tags: [sysadmin, splunk, logs, monitoring, operacion]
 
 Este post sirve para lanzar busquedas Splunk, filtrar eventos, extraer campos y comprobar el estado del forwarder.
 
+Reiniciar un forwarder puede provocar una pausa temporal en el envio de logs. Usalo cuando hayas cambiado configuracion, veas bloqueo o necesites forzar reconexion. Despues, revisa `list forward-server` o busquedas recientes para confirmar que vuelve a enviar eventos.
+
 ## Busquedas basicas
 
 ```text

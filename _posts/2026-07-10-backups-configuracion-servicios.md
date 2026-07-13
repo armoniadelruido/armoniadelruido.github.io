@@ -50,6 +50,8 @@ tar czf "/ruta/destino/config/tools_${FECHA}.tar.gz" -C /ruta/destino/config too
 
 ## Patron recomendado: pfSense
 
+Este ejemplo presupone que `cookies.txt` contiene una sesion valida. En pfSense normalmente hay que hacer login antes, capturar el token CSRF y comprobar que la descarga resultante es un XML real, no una pagina de login. Despues de descargar, valida que el fichero no esta vacio y que empieza como configuracion pfSense antes de dar el backup por bueno.
+
 ```bash
 curl -fsS -b cookies.txt -o "/ruta/destino/pfsense/pfsense_$(date +%Y%m%d).xml" \
   'https://<HOSTNAME>/diag_backup.php?download=download'

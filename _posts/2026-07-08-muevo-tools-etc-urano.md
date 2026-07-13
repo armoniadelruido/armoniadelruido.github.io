@@ -36,7 +36,7 @@ La entrada aparece comentada en `micron_nextcloud`:
 3. Comprime `tools`.
 4. Mueve ambos tarballs a `/ruta/destino/backups`.
 
-## Script original anonimizado
+## Script original
 
 ```bash
 #!/bin/bash

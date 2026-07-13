@@ -7,6 +7,8 @@ tags: [sysdamin, grub, rescue, lvm, luks, cryptosetup, cifrada]
 
 # Como recuperar grub/sistema despúes de instalar windows junto a Linux en una partición cifrada.
 
+Antes de instalar GRUB o ejecutar `fsck`, identifica bien disco, particion root, `/boot` y EFI con `lsblk -f`. Instala GRUB en el disco correcto, no en una particion al azar. `fsck` debe ejecutarse desde live/rescue o con el filesystem desmontado.
+
 Secuencia para instalar el GRUB (desde una ISO live):
 
         Listar devices y particiones: sudo fdisk -l
