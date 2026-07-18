@@ -16,7 +16,7 @@ Se usa para mantener publicados los FQDN del homelab cuando la conexion cambia d
 | Rol | Servicio | Impacto si falla |
 |---|---|---|
 | DNS dinamico | Cloudflare | Los nombres externos apuntan a una IP antigua |
-| Publicacion | Nextcloud, Jitsi, Docs, VPN | Servicios inaccesibles desde Internet |
+| Publicacion | web1, web2, web3, web4 | Servicios inaccesibles desde Internet |
 | Disparo operativo | OpenVPN | No se regenera el cliente si depende de IP directa |
 
 Es una pieza de perimetro: debe ejecutarse antes de validar VPN o certificados.
@@ -58,48 +58,51 @@ fi
 ```bash
 #!/bin/bash
 LOG=/var/log/cloudflare.log
-CHAT=/ruta/origen/scripts/cloudflare_chat.sh
-MEET=/ruta/origen/scripts/cloudflare_meet.sh
-CLOUD=/ruta/origen/scripts/cloudflare_cloud.sh
-DOCS=/ruta/origen/scripts/cloudflare_docs.sh
-RAIZ=/ruta/origen/scripts/cloudflare_armoniadelruido.sh
-WWW=/ruta/origen/scripts/cloudflare_www.sh
-CODE=/ruta/origen/scripts/cloudflare_code.sh
-RUST=/ruta/origen/scripts/cloudflare_rust.sh
-JARVIS=/ruta/origen/scripts/cloudflare_jarvis.sh
-VPN=/ruta/origen/scripts/cloudflare_vpn.sh
+WEB1=/ruta/origen/scripts/cloudflare_web1.sh
+WEB2=/ruta/origen/scripts/cloudflare_web2.sh
+WEB3=/ruta/origen/scripts/cloudflare_web3.sh
+WEB4=/ruta/origen/scripts/cloudflare_web4.sh
+WEB5=/ruta/origen/scripts/cloudflare_web5.sh
+WEB6=/ruta/origen/scripts/cloudflare_web6.sh
+WEB7=/ruta/origen/scripts/cloudflare_web7.sh
+WEB8=/ruta/origen/scripts/cloudflare_web8.sh
+WEB9=/ruta/origen/scripts/cloudflare_web9.sh
+WEB10=/ruta/origen/scripts/cloudflare_web10.sh
 
 echo "Sincronizamos ip local con Cloudflare" > $LOG
-echo "Sincronizamos MEET" >> $LOG
-$MEET >> $LOG
-if [[ $? -ne 0 ]]; then echo "Error al sincronizar MEET" >> $LOG; exit 3; else
-echo "Sincronizamos CHAT" >> $LOG
-$CHAT >> $LOG
-if [[ $? -ne 0 ]]; then echo "Error al sincronizar CHAT" >> $LOG; exit 3; else
-echo "Sincronizamos CLOUD" >> $LOG
-$CLOUD >> $LOG
-if [[ $? -ne 0 ]]; then echo "Error al sincronizar CLOUD" >> $LOG; exit 5; else
-echo "Sincronizamos DOCS" >> $LOG
-$DOCS >> $LOG
-if [[ $? -ne 0 ]]; then echo "Error al sincronizar DOCS" >> $LOG; exit 7; else
-echo "Sincronizamos WWW" >> $LOG
-$WWW >> $LOG
-if [[ $? -ne 0 ]]; then echo "Error al sincronizar WWW" >> $LOG; exit 11; else
-echo "Sincronizamos CODE" >> $LOG
-$CODE >> $LOG
-if [[ $? -ne 0 ]]; then echo "Error al sincronizar CODE" >> $LOG; exit 12; else
-echo "Sincronizamos RUST" >> $LOG
-$RUST >> $LOG
-if [[ $? -ne 0 ]]; then echo "Error al sincronizar RUST" >> $LOG; exit 13; else
-echo "Sincronizamos VPN" >> $LOG
-$VPN >> $LOG
-if [[ $? -ne 0 ]]; then echo "Error al sincronizar VPN" >> $LOG; exit 15; else
-echo "Sincronizo jarvis" >> $LOG
-$JARVIS >> $LOG
-if [[ $? -ne 0 ]]; then echo "Error al sincronizar jarvis" >> $LOG; exit 17; else
+echo "Sincronizamos WEB1" >> $LOG
+$WEB1 >> $LOG
+if [[ $? -ne 0 ]]; then echo "Error al sincronizar WEB1" >> $LOG; exit 3; else
+echo "Sincronizamos WEB2" >> $LOG
+$WEB2 >> $LOG
+if [[ $? -ne 0 ]]; then echo "Error al sincronizar WEB2" >> $LOG; exit 3; else
+echo "Sincronizamos WEB3" >> $LOG
+$WEB3 >> $LOG
+if [[ $? -ne 0 ]]; then echo "Error al sincronizar WEB3" >> $LOG; exit 5; else
+echo "Sincronizamos WEB4" >> $LOG
+$WEB4 >> $LOG
+if [[ $? -ne 0 ]]; then echo "Error al sincronizar WEB4" >> $LOG; exit 7; else
+echo "Sincronizamos WEB5" >> $LOG
+$WEB5 >> $LOG
+if [[ $? -ne 0 ]]; then echo "Error al sincronizar WEB5" >> $LOG; exit 9; else
+echo "Sincronizamos WEB6" >> $LOG
+$WEB6 >> $LOG
+if [[ $? -ne 0 ]]; then echo "Error al sincronizar WEB6" >> $LOG; exit 11; else
+echo "Sincronizamos WEB7" >> $LOG
+$WEB7 >> $LOG
+if [[ $? -ne 0 ]]; then echo "Error al sincronizar WEB7" >> $LOG; exit 12; else
+echo "Sincronizamos WEB8" >> $LOG
+$WEB8 >> $LOG
+if [[ $? -ne 0 ]]; then echo "Error al sincronizar WEB8" >> $LOG; exit 13; else
+echo "Sincronizamos WEB9" >> $LOG
+$WEB9 >> $LOG
+if [[ $? -ne 0 ]]; then echo "Error al sincronizar WEB9" >> $LOG; exit 17; else
+echo "Sincronizamos WEB10" >> $LOG
+$WEB10 >> $LOG
+if [[ $? -ne 0 ]]; then echo "Error al sincronizar WEB10" >> $LOG; exit 15; else
 echo "SIncronizacion Finalizada" >> $LOG
 exit 0
-fi; fi; fi; fi; fi; fi; fi; fi; fi
+fi; fi; fi; fi; fi; fi; fi; fi; fi; fi
 ```
 
 ## Version revisada del orquestador
@@ -171,14 +174,14 @@ Fuentes consolidadas
 
 - `/tools/scripts/libra_scripts/revisa_ip_publica.sh`
 - `/tools/scripts/libra_scripts/cloudflare.sh`
-- `/tools/scripts/libra_scripts/cloudflare_chat.sh`
-- `/tools/scripts/libra_scripts/cloudflare_cloud.sh`
-- `/tools/scripts/libra_scripts/cloudflare_docs.sh`
-- `/tools/scripts/libra_scripts/cloudflare_meet.sh`
-- `/tools/scripts/libra_scripts/cloudflare_www.sh`
-- `/tools/scripts/libra_scripts/cloudflare_code.sh`
-- `/tools/scripts/libra_scripts/cloudflare_rust.sh`
-- `/tools/scripts/libra_scripts/cloudflare_jarvis.sh`
-- `/tools/scripts/libra_scripts/cloudflare_vpn.sh`
-- `/tools/scripts/libra_scripts/cloudflare_armoniadelruido.sh`
+- `/tools/scripts/libra_scripts/cloudflare_web1.sh`
+- `/tools/scripts/libra_scripts/cloudflare_web2.sh`
+- `/tools/scripts/libra_scripts/cloudflare_web3.sh`
+- `/tools/scripts/libra_scripts/cloudflare_web4.sh`
+- `/tools/scripts/libra_scripts/cloudflare_web5.sh`
+- `/tools/scripts/libra_scripts/cloudflare_web6.sh`
+- `/tools/scripts/libra_scripts/cloudflare_web7.sh`
+- `/tools/scripts/libra_scripts/cloudflare_web8.sh`
+- `/tools/scripts/libra_scripts/cloudflare_web9.sh`
+- `/tools/scripts/libra_scripts/cloudflare_web10.sh`
 -->
