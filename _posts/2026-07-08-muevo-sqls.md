@@ -19,7 +19,7 @@ Se usa para sacar dumps SQL del host y conservarlos en almacenamiento externo co
 | Copia externa | NAS/almacenamiento | Se pierde proteccion ante fallo del host |
 | Limpieza origen | Disco local | Puede llenarse si no se depura |
 
-No debe borrar dumps locales hasta confirmar que el tarball llego al destino.
+Debe intentar enviar el tarball al destino externo, pero la retencion local no debe depender de que el mount remoto funcione.
 
 ## Ejecucion programada
 
@@ -31,10 +31,10 @@ No debe borrar dumps locales hasta confirmar que el tarball llego al destino.
 
 1. Entra en `/ruta/origen/backups-locales`.
 2. Comprime la carpeta `sqls` en `/tmp`.
-3. Monta un destino remoto de backups mensuales.
-4. Mueve el tarball a `/ruta/destino/backups-mensuales/sqls`.
+3. Monta un destino remoto de backups mensuales con timeout.
+4. Si el destino monta, mueve el tarball a `/ruta/destino/backups-mensuales/sqls`.
 5. Desmonta el destino.
-6. Elimina los dumps SQL del origen local.
+6. Siempre al salir, aplica retencion local: ultimos 15 dumps y ultimos 2 tar SQL en `/tmp`.
 
 ## Script original
 
@@ -105,20 +105,52 @@ ORIGEN_SQL="/ruta/origen/backups-locales/sqls"
 TMP_TAR="/tmp/sqls_${FECHA}.tar.gz"
 MOUNT_DESTINO="/mnt/destino/backups-mensuales"
 NFS_DESTINO="<HOSTNAME>:/ruta/destino/backups-mensuales"
+RETENER_DUMPS=15
+RETENER_TARS=2
+
+logline() {
+  printf '%s %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*" >> "$LOG"
+}
+
+limpia_sqls_locales() {
+  find "$ORIGEN_SQL" -maxdepth 1 -type f -name 'bck_*' -printf '%T@ %p\n' \
+    | sort -rn \
+    | awk -v keep="$RETENER_DUMPS" 'NR>keep { $1=""; sub(/^ /, ""); print }' \
+    | while IFS= read -r fichero; do
+        [[ -n "$fichero" ]] && rm -f -- "$fichero"
+      done
+}
+
+limpia_sqls_tmp() {
+  find /tmp -maxdepth 1 -type f -name 'sqls.*.tar.gz' -printf '%T@ %p\n' \
+    | sort -rn \
+    | awk -v keep="$RETENER_TARS" 'NR>keep { $1=""; sub(/^ /, ""); print }' \
+    | while IFS= read -r fichero; do
+        [[ -n "$fichero" ]] && rm -f -- "$fichero"
+      done
+}
+
+limpieza_salida() {
+  limpia_sqls_locales
+  limpia_sqls_tmp
+  umount -l "$MOUNT_DESTINO" 2>/dev/null || true
+}
+
+trap limpieza_salida EXIT
 
 tar czf "$TMP_TAR" -C "$(dirname "$ORIGEN_SQL")" "$(basename "$ORIGEN_SQL")"
-mount "$NFS_DESTINO" "$MOUNT_DESTINO"
-trap 'umount -l "$MOUNT_DESTINO" 2>/dev/null || true' EXIT
+timeout 60s mount "$NFS_DESTINO" "$MOUNT_DESTINO"
 mv "$TMP_TAR" "$MOUNT_DESTINO/sqls/"
-find "$ORIGEN_SQL" -type f -name 'bck_*.sql*' -print -delete >> "$LOG" 2>&1
 ```
 
 ## Riesgos y mejoras
 
-- No borrar origen hasta confirmar copia en destino.
+- La retencion local debe ejecutarse aunque falle el destino externo.
 - Usar `find -type f` y patrones concretos.
 - Registrar el tamaño del tar final.
 - Evitar `mv /tmp/sqls*tar.gz` por ser demasiado amplio.
+- El mount NFS debe tener timeout para no bloquear el cron.
+- `/tmp` tambien necesita retencion si el destino no monta.
 
 ## Cambios y motivo
 
@@ -127,7 +159,10 @@ find "$ORIGEN_SQL" -type f -name 'bck_*.sql*' -print -delete >> "$LOG" 2>&1
 | `trap` para desmontar | evita dejar el NFS montado si falla un paso intermedio |
 | tarball con nombre exacto | evita mover ficheros de `/tmp` que no pertenecen al backup |
 | `find -type f -name` | limita el borrado a ficheros esperados |
-| no borrar antes de validar destino | reduce riesgo de perder dumps validos |
+| `timeout 60s mount` | evita que NFS bloquee el cron durante demasiado tiempo |
+| retener 15 dumps locales | evita llenar el origen local conservando margen de recuperacion |
+| retener 2 tar en `/tmp` | evita llenar temporales si falla el envio externo |
+| `trap` de limpieza | aplica retencion tanto en exito como en fallo |
 
 <!--
 Fuentes consolidadas

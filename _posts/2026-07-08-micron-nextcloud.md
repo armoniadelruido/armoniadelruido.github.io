@@ -3,6 +3,7 @@ title: micron_nextcloud
 date: 2026-07-08 00:10:00
 categories: [Sistemas, Scripting]
 tags: [bash, cron, nextcloud, backup, mantenimiento]
+published: false
 ---
 
 # micron_nextcloud
@@ -87,6 +88,7 @@ micron_nextcloud
 - El crontab referencia `/ruta/origen/scripts/...`, pero los ficheros analizados estaban agrupados en una subcarpeta de scripts Nextcloud.
 - Conviene normalizar rutas absolutas o usar una variable `SCRIPT_DIR`.
 - Las tareas de backup y movimiento comparten el patron `logline()` para timestamp en logs.
+- `muevo_sqls.sh` debe ser seguro aunque el destino externo no monte: timeout en NFS, retencion de 15 dumps locales y 2 tar temporales.
 - Hay tareas comentadas que conviene mantener documentadas porque forman parte de la operativa historica.
 
 <!--

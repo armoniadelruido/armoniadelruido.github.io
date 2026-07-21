@@ -74,6 +74,29 @@ trap 'umount -l /mnt/backups 2>/dev/null || true' EXIT
 mv "/tmp/nextcloud-data_${FECHA}.tar.gz" /mnt/backups/nextcloud/
 ```
 
+## Patron recomendado: retencion local SQL
+
+`dumpea.sh` genera dumps diarios y `muevo_sqls.sh` los empaqueta semanalmente. Si el destino externo no monta, el host no debe llenar ni `/bck_local` ni `/tmp` mientras espera al siguiente intento.
+
+```bash
+RETENER_DUMPS=15
+RETENER_TARS=2
+
+timeout 60s mount <HOSTNAME>:/ruta/destino/backups-mensuales /mnt/backups
+
+find /bck_local/sqls -maxdepth 1 -type f -name 'bck_*' -printf '%T@ %p\n' \
+  | sort -rn \
+  | awk -v keep="$RETENER_DUMPS" 'NR>keep { $1=""; sub(/^ /, ""); print }' \
+  | while IFS= read -r fichero; do rm -f -- "$fichero"; done
+
+find /tmp -maxdepth 1 -type f -name 'sqls.*.tar.gz' -printf '%T@ %p\n' \
+  | sort -rn \
+  | awk -v keep="$RETENER_TARS" 'NR>keep { $1=""; sub(/^ /, ""); print }' \
+  | while IFS= read -r fichero; do rm -f -- "$fichero"; done
+```
+
+Con esta retencion quedan los ultimos 15 dumps diarios sueltos y los ultimos 2 tar SQL. En la practica da varias semanas de margen operativo aunque el envio externo falle temporalmente.
+
 ## Patron recomendado: retencion
 
 ```bash
@@ -96,6 +119,9 @@ find /ruta/destino/backups/nextcloud -type f -name '*.tar.gz' -mtime +90 -print 
 - El dump SQL no esta vacio.
 - El destino esta montado donde toca.
 - El backup no depende solo de `/tmp`.
+- El mount remoto tiene timeout y no bloquea el cron indefinidamente.
+- `/bck_local/sqls` conserva solo los ultimos 15 dumps diarios.
+- `/tmp` conserva solo los ultimos 2 tar SQL.
 - Hay logs con fecha.
 - La retencion usa `-type f` y patrones concretos.
 - Hay al menos una prueba de restore documentada.
