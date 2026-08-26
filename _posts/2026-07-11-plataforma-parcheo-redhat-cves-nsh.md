@@ -81,7 +81,7 @@ Con esa metadata disponible, cada host podia consultar seguridad sin salir a Int
 
 ### Consultas de seguridad
 
-Los comandos base eran los de `yum-plugin-security`.
+Los comandos base del procedimiento original eran los de `yum-plugin-security`.
 
 ```bash
 yum updateinfo list available
@@ -101,6 +101,55 @@ yum update --advisory=RHSA-2019:0163
 ```
 
 La plataforma se apoyaba en esa salida para saber que servidores estaban afectados y que nivel de urgencia tenia cada parche.
+
+### Equivalentes actuales con dnf
+
+El procedimiento original usa `yum` porque corresponde al contexto operativo de 2019, especialmente RHEL 6/7. En RHEL 8/9, la lógica se mantiene, pero las consultas pasan a `dnf advisory`.
+
+Primero conviene refrescar metadatos:
+
+```bash
+sudo dnf makecache --refresh
+```
+
+Consultas equivalentes:
+
+```bash
+dnf advisory list --available
+dnf advisory list --security --all
+dnf advisory list --available --with-cve
+dnf advisory summary
+dnf check-upgrade --security
+```
+
+Aplicación de parches de seguridad:
+
+```bash
+sudo dnf upgrade --security
+sudo dnf upgrade --security --minimal
+```
+
+Parcheo dirigido por CVE o advisory:
+
+```bash
+sudo dnf upgrade --cves=CVE-2008-0947
+sudo dnf upgrade --advisories=RHSA-2019:0163
+```
+
+Equivalencias rápidas:
+
+| Antes con yum | Ahora con dnf |
+|---|---|
+| `yum updateinfo list available` | `dnf advisory list --available` |
+| `yum updateinfo list security all` | `dnf advisory list --security --all` |
+| `yum updateinfo list cves` | `dnf advisory list --available --with-cve` |
+| `yum --security check-update` | `dnf check-upgrade --security` |
+| `yum updateinfo summary` | `dnf advisory summary` |
+| `yum update --security` | `sudo dnf upgrade --security` |
+| `yum update-minimal --security` | `sudo dnf upgrade --security --minimal` |
+| `yum update --cve CVE-2008-0947` | `sudo dnf upgrade --cves=CVE-2008-0947` |
+| `yum update --advisory=RHSA-2019:0163` | `sudo dnf upgrade --advisories=RHSA-2019:0163` |
+
 
 ### NSH y ejecucion remota
 
