@@ -180,6 +180,36 @@ lvextend /dev/rootvg/var_log
 resize2fs /dev/mapper/rootvg-root
 ```
 
+Si gestionamos todo con LVM:
+```
+dmesg  nos dice el nombre del disco (sdc en este caso)
+Creamos el volumen fisico:
+pvcreate /dev/sdc
+
+Extendemos el vg al nuevo disco:
+vgextend dadesvg /dev/sdd
+vgextend rootvg /dev/sdc
+
+Extendemos el volumen logico Gb:
+lvextend /dev/mapper/dadesvg-dades -L+5G
+lvextend /dev/mapper/rootvg-root -L+60G
+lvextend /dev/mapper/rootvg-var -L+45G
+
+
+Reajustamos el tamaño del filesystem:
+resize2fs /dev/mapper/dadesvg-dades
+resize2fs /dev/mapper/rootvg-root
+resize2fs /dev/mapper/rootvg-var
+```
+
+Lo podemos hacer todo en menos comandos:
+```
+pvcreate /dev/sdc
+vgextend rootvg /dev/sdc
+lvextend /dev/mapper/rootvg-root -L+60G -r
+
+```
+
 ### Grepeos de Logins
 ```bash
 zgrep -hi "Failed password for " /var/log/secure* | sed "s/invalid user //" | tr -s " " | awk '{print $11" "$9}' | sort | uniq -c | sort -rn | head -20
