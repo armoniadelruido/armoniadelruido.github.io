@@ -163,10 +163,3 @@ mv "$TMP_TAR" "$MOUNT_DESTINO/sqls/"
 | retener 15 dumps locales | evita llenar el origen local conservando margen de recuperacion |
 | retener 2 tar en `/tmp` | evita llenar temporales si falla el envio externo |
 | `trap` de limpieza | aplica retencion tanto en exito como en fallo |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/nextcloud_scripts/micron_nextcloud`
-- `/tools/scripts/nextcloud_scripts/muevo_sqls.sh`
--->

@@ -105,10 +105,3 @@ fi
 | prompts claros | reduce errores manuales al desbanear |
 | validar IP | evita ejecutar `unbanip` con texto accidental |
 | registrar acciones | deja auditoria de intervenciones manuales |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/libra_scripts/f2ban_status.sh`
-- `/tools/scripts/libra_scripts/unban.sh`
--->

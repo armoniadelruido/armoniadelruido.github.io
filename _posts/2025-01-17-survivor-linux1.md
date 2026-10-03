@@ -253,6 +253,7 @@ Archivos .gz:
 Comprimir/Descomprimir:
 gzip -9 index.php
 gzip -d index.php.gz
+```
 
 Archivos .zip:
 Comprimir/Descomprimir:
@@ -271,19 +272,6 @@ pwdadm -c usuario
 
 
 ## Consolidacion de apuntes Linux
-
-<!--
-Fuentes consolidadas
-
-- `survivor_LINUX.txt`
-- `LVM survivor.txt`
-- `Discos y FSs.txt`
-- `SWAP.txt`
-- `reset_root.txt`
-- `Crontab.txt`
-- `Script_servicios.txt`
-- `logrotate.txt`
--->
 
 ### Servicios
 

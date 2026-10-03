@@ -84,27 +84,3 @@ journalctl -p warning..alert
 grep -i "failed password" /var/log/secure*
 ausearch -m USER_LOGIN,USER_AUTH
 ```
-
-<!--
-Fuentes consolidadas
-
-- `ChecklistHardening.txt`
-- `hardening_maquinas.txt`
-- `intervnecion hardening.txt`
-- `vulnerabilidades.txt`
-- `ASVs_1T2019.txt`
-- `digifest.txt`
-- `digifest139.txt`
-- `digifest144.txt`
-- `SACK.txt`
-- `Sack_panick_info.txt`
-- `IP_tables.txt`
-- `REGLAS FW.txt`
-- `ossim_ossec.txt`
-- `OSSIM_SYSLOG.txt`
-- `sophos_inst.txt`
-- `Talpa_sophos.txt`
-- `imperva.txt`
-- `Imperva_register.txt`
-- `FOCA_results.txt`
--->

@@ -126,11 +126,3 @@ mv "$ORIGEN_BASE"/www.*.tar.gz "$MOUNT_DESTINO/www/"
 | rutas en variables | reduce errores al cambiar destino |
 | `trap` de desmontaje | evita dejar el destino montado si falla un `mv` |
 | nombres de tarballs exactos | evita comodines amplios como `etc*tar.gz` |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/nextcloud_scripts/micron_nextcloud`
-- `/tools/scripts/nextcloud_scripts/muevo_filesystems_neptuno.sh`
-- `/tools/scripts/nextcloud_scripts/depuro_neptuno_90.sh`
--->

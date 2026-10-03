@@ -119,21 +119,3 @@ El fichero de credenciales debe tener permisos restrictivos:
 ```bash
 chmod 600 /ruta/segura/cloudflare.ini
 ```
-
-<!--
-Fuentes consolidadas
-
-- `openssl.txt`
-- `SSLs.txt`
-- `jks.txt`
-- `javachuleta.txt`
-- `java certis.txt`
-- `jarsigner.txt`
-- `KeystoreTomcat.txt`
-- `ciphers_Tomcats.txt`
-- `iway_proc_certificats.txt`
-- `control_certis_nagios.txt`
-- `new 34.txt`
-- `new 57.txt`
-- `creacion_certis_ssl`
--->

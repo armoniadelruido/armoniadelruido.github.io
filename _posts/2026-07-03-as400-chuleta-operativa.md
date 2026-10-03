@@ -51,9 +51,3 @@ DSPOBJD OBJ(<LIBRERIA>/<OBJETO>) OBJTYPE(*ALL)
 WRKUSRPRF <USUARIO>
 DSPUSRPRF <USUARIO>
 ```
-
-<!--
-Fuentes consolidadas
-
-- `as400.txt`
--->

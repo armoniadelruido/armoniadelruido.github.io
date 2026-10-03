@@ -90,13 +90,3 @@ La tarea se ejecuta varias veces al dia desde `micron_nextcloud` para reducir pr
 ## Variante libra_scripts
 
 La variante de `libra_scripts` usa un umbral de `512 MB`. Es util como ejemplo minimo, pero conviene ejecutar `sync` y `drop_caches` directamente en lugar de intentar guardar la redireccion en una variable.
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/micron1`
-- `/tools/scripts/liberamemoria.sh`
-- `/tools/scripts/nextcloud_scripts/micron_nextcloud`
-- `/tools/scripts/nextcloud_scripts/liberamemoria.sh`
-- `/tools/scripts/libra_scripts/liberamemoria.sh`
--->

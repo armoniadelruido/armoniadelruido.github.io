@@ -174,23 +174,3 @@ Para restaurar, primero se recupera la BBDD, despues el filesystem y por ultimo 
 sudo -u www-data php /ruta/origen/nextcloud/occ maintenance:repair
 sudo -u www-data php /ruta/origen/nextcloud/occ files:scan --all
 ```
-
-<!--
-Fuentes consolidadas
-
-- `nexcloud_php8_debian11_install`
-- `nextcloud_con_ssl`
-- `nextcloud/cambio_data_files`
-- `nextcloud/config.php`
-- `nextcloud/nexcloud_15_proxmox_apache`
-- `nextcloud/nextclooud_proxmox`
-- `nextcloud/php`
-- `nextcloud/read_only_mode`
-- `nextcloud/resolucion-de-problemas-nextcloud-1.pdf`
-- `onlyoffice/generate.json`
-- `onlyoffice/local.json`
-- `onlyoffice/problemas`
-- `/tools/scripts/sync_files_a_nextcloud.sh`
-- `/tools/scripts/sync_docs_a_nextcloud.sh._v1`
-- `/tools/scripts/sync_docs_a_cirro.sh`
--->

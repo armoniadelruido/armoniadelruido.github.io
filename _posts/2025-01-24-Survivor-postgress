@@ -13,16 +13,16 @@ directorio de instalacion:
 su - postgres
 psql
 DESS y PRE
-create role documentum with login encrypted password 'PASSWORD';
+create role <USUARIO_DB> with login encrypted password '<PASSWORD>';
 
-create database docdb owner documentum template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
+create database <BBDD> owner <USUARIO_DB> template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
 \q
 
 PRO 
 
-create role docboss with login encrypted password 'PASSWORD';
+create role <USUARIO_DB> with login encrypted password '<PASSWORD>';
 
-create database docdb owner docboss template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
+create database <BBDD> owner <USUARIO_DB> template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
 \q
 
 /var/lib/pgsql/9.6/data/postgresql.conf
@@ -39,7 +39,7 @@ y luego, decir que bbdd, que usuario, y que ip podrá conectarse a la BBDD
 local   all             all                                     peer
 # IPv4 local connections:
 #host    all             all             127.0.0.1/32            ident\i
-host    docdb           documentum      192.168.2.0/24           md5  (para que valide con credenciales suministradas))
+host    <BBDD>          <USUARIO_DB>    <RED_INTERNA>/24         md5  (para que valide con credenciales suministradas)
 
 Importante vigilar iptables
  /etc/sysconfig/iptables

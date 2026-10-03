@@ -74,32 +74,3 @@ dsmc query backup /ruta/ejemplo/* -inactive
 ```bash
 dsmc restore /ruta/origen/fichero /ruta/destino/fichero -pitdate=<YYYY-MM-DD> -pittime=<HH:MM:SS>
 ```
-
-<!--
-Fuentes consolidadas
-
-- `tsm.txt`
-- `TSM.txt`
-- `tsm (2).txt`
-- `recrear_TSM.txt`
-- `reiniciar TSM.txt`
-- `Scheduler-tsm.txt`
-- `TSM_VEEAM.txt`
-- `tivol_tws.txt`
-- `restore_ciclo2.txt`
-- `cintas_protectier.txt`
-- `protectier.txt`
-- `restore_marc.txt`
-- `new 3 (2).txt`
-- `new 5.txt`
-- `new 10.txt`
-- `new 14.txt`
-- `new 20.txt`
-- `new 28.txt`
-- `new 53.txt`
-- `new 67.txt`
-- `new 80.txt`
-- `new 81.txt`
-- `new 85.txt`
-- `new 88.txt`
--->

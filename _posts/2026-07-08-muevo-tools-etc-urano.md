@@ -102,10 +102,3 @@ mv "$ORIGEN_BASE/tools.${FECHA}.tar.gz" "$DESTINO_BASE/tools/"
 | variables origen/destino | facilita cambiar ubicaciones |
 | `set -euo pipefail` | simplifica los `if [ $? -ne 0 ]` encadenados |
 | destino validado | evita mover a una ruta no montada |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/nextcloud_scripts/micron_nextcloud`
-- `/tools/scripts/nextcloud_scripts/muevo_tools_etc_urano.sh`
--->

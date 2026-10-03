@@ -71,9 +71,3 @@ TO="<EMAIL>"
   printf -- '--FILEBOUNDARY--\n'
 } | /usr/sbin/exim4 -t
 ```
-
-<!--
-Fuentes consolidadas
-
-- `exim4`
--->

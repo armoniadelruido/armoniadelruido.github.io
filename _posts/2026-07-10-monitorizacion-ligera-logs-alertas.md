@@ -82,19 +82,3 @@ curl -fsS -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
 | `libra_bot.sh`, `libra_bot2.sh` | enviar resumen a Telegram |
 | `f2ban_status.sh` | informe rapido Fail2ban |
 | `unban.sh` | desbaneo manual |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/accesos.sh`
-- `/tools/scripts/conexiones.sh`
-- `/tools/scripts/conexiones_ssl.sh`
-- `/tools/scripts/submision.sh`
-- `/tools/scripts/libra_scripts/jitsi.sh`
-- `/tools/scripts/libra_scripts/jitsi1.sh`
-- `/tools/scripts/libra_scripts/jitsi_live.sh`
-- `/tools/scripts/libra_scripts/libra_bot.sh`
-- `/tools/scripts/libra_scripts/libra_bot2.sh`
-- `/tools/scripts/libra_scripts/f2ban_status.sh`
-- `/tools/scripts/libra_scripts/unban.sh`
--->

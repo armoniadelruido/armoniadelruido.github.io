@@ -109,11 +109,3 @@ ssh <USUARIO_ADMIN>@<HOSTNAME> "/ruta/origen/scripts/liberamemoria.sh"
 | validar credenciales y fingerprint | falla antes de iniciar backup largo |
 | separar rutas en lista | simplifica revisar que entra en PBS |
 | no mezclar limpieza remota con backup | evita que fallo de limpieza o SSH marque ambiguamente el resultado |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/micron1`
-- `/tools/scripts/proxmox_backup_collar.sh`
-- `/tools/scripts/liberamemoria.sh`
--->

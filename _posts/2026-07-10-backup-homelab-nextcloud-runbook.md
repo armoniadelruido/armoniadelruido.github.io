@@ -137,16 +137,3 @@ find /ruta/destino/backups/nextcloud -type f -name '*.tar.gz' -mtime +90 -print 
 | `depuro_neptuno_90.sh` | retencion en destino externo |
 | `backup_nube_neptuno.sh` | copia mensual del arbol de datos |
 | `sincro_nubes.sh` | replica entre instancias/hosts |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/nextcloud_scripts/backup_filesystem.sh`
-- `/tools/scripts/nextcloud_scripts/dumpea.sh`
-- `/tools/scripts/nextcloud_scripts/muevo_sqls.sh`
-- `/tools/scripts/nextcloud_scripts/muevo_filesystems_neptuno.sh`
-- `/tools/scripts/nextcloud_scripts/depuro_neptuno_90.sh`
-- `/tools/scripts/nextcloud_scripts/backup_nube_neptuno.sh`
-- `/tools/scripts/nextcloud_scripts/sincro_nubes.sh`
-- `/tools/scripts/nextcloud_scripts/import_sql.sh`
--->

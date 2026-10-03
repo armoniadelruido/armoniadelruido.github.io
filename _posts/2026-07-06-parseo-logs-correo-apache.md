@@ -76,12 +76,3 @@ curl -fsS -X POST "https://api.telegram.org/bot<TOKEN>/sendMessage" \
   -d chat_id="<CHAT_ID>" \
   --data-urlencode text="Revisar logs en <HOSTNAME>"
 ```
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/accesos.sh`
-- `/tools/scripts/submision.sh`
-- `/tools/scripts/conexiones.sh`
-- `/tools/scripts/conexiones_ssl.sh`
--->

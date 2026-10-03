@@ -131,11 +131,3 @@ done
 | temporales con `mktemp` | no deja `cookies.txt` y `csrf.txt` fijos en el directorio |
 | validar XML descargado | evita conservar backups vacios o pagina de login |
 | credenciales fuera del script | reduce exposicion de password de firewall |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/micron1`
-- `/tools/scripts/pfsense/pfsense_backups_auto.sh`
-- `/tools/scripts/pfsense/depura_ficheros.sh`
--->

@@ -16,21 +16,6 @@ db2 list active databases
 
 ## Consolidacion de apuntes DB2
 
-<!--
-Fuentes consolidadas
-
-- `DB2 Survivol.txt`
-- `RESTORES DB2.txt`
-- `restores tablas DB2.txt`
-- `RESTORE_SCRIPT_DB2.txt`
-- `indoubt.txt`
-- `indobts.txt`
-- `tablespaces.txt`
-- `Partitions.txt`
-- `Mascaras.txt`
-- `Masacaras_db2 4.txt`
--->
-
 ### Backup y restore
 
 ```bash

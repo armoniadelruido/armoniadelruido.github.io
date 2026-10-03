@@ -120,10 +120,3 @@ rsync -avz -e ssh <HOSTNAME>:/ruta/origen/letsencrypt/ /ruta/destino/letsencrypt
 | barras finales en `rsync` | aclara si se copia carpeta o contenido |
 | rutas origen/destino explicitas | separa configuracion recuperada de backup de datos |
 | advertencia sobre Let's Encrypt | contiene claves privadas y requiere permisos estrictos |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/libra_scripts/sync_files_a_nextcloud.sh`
-- `/tools/scripts/libra_scripts/me_traigo_la_config_de_libra.sh`
--->

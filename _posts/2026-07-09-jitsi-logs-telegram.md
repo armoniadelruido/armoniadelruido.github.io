@@ -101,13 +101,3 @@ done < "$SALIDA"
 | `while read` | evita problemas con `for $(cat fichero)` y espacios |
 | `--data-urlencode` | envia correctamente texto con espacios o caracteres especiales |
 | token en ruta segura | evita dejar el token de Telegram en el script |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/libra_scripts/jitsi.sh`
-- `/tools/scripts/libra_scripts/jitsi1.sh`
-- `/tools/scripts/libra_scripts/jitsi_live.sh`
-- `/tools/scripts/libra_scripts/libra_bot.sh`
-- `/tools/scripts/libra_scripts/libra_bot2.sh`
--->

@@ -4,7 +4,7 @@ Como hice este site, en local:
 Falta la parte de los repos, pero ya la pondré.
 
 cargo la web en local:
-cd /home/alexaid/Documentos/gitlab_web/armoniadelruido.github.io
+cd <RUTA_REPOSITORIO>
 
 
 apt-get install -y ruby-full build-essential zlib1g-dev git
@@ -16,9 +16,7 @@ echo 'export PATH="$HOME/.gems/bin:$PATH"' >> ~/.bashrc
 
 gem install bundler
 bundler -v
-cd /Documentos/gitlab_web/armoniadelruido.github.io/
+cd <RUTA_REPOSITORIO>
 rm Gemfile.lock
 bundle install
 bundle exec jekyll serve
-
-

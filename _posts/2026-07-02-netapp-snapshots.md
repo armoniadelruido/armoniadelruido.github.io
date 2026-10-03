@@ -61,17 +61,3 @@ purevol list
 purevol snap <VOLUME>
 purevol copy <SNAPSHOT> <VOLUME_DESTINO>
 ```
-
-<!--
-Fuentes consolidadas
-
-- `Netapp.txt`
-- `disco_netapp.txt`
-- `reactivacion_snapshots_cabina.txt`
-- `Intervencion_Cabina.txt`
-- `protectier.txt`
-- `restaura_snaps.txt`
-- `comandos_pure.txt`
-- `new 37.txt`
-- `new 108.txt`
--->

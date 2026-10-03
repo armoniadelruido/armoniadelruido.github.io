@@ -89,11 +89,3 @@ fi
 | umbral parametrizable | permite usar 512 MB o 2048 MB segun host |
 | comillas en `$SWAP_DEVICE` | evita errores si la variable queda vacia |
 | no depender de `NR==3` | la swap activa puede no estar siempre en esa linea |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/libra_scripts/liberamemoria.sh`
-- `/tools/scripts/libra_scripts/libera_swap.sh`
-- `/tools/scripts/libra_scripts/ps_mem.py`
--->

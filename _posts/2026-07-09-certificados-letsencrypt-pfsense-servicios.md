@@ -113,16 +113,3 @@ ssh -p 2222 <USUARIO_ADMIN>@<HOSTNAME> \
 | evitar `/tmp` para claves | reduce exposicion de `privkey.pem` |
 | `install -m` | copia y aplica permisos en el mismo paso |
 | separar renovacion y distribucion | permite validar certificado antes de desplegarlo |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/libra_scripts/renueva_certis.sh`
-- `/tools/scripts/libra_scripts/letsencrypt_wildcard`
-- `/tools/scripts/libra_scripts/pfsense_certs.sh`
-- `/tools/scripts/libra_scripts/piholes_certs.sh`
-- `/tools/scripts/libra_scripts/certis_nextcloud.sh`
-- `/tools/scripts/libra_scripts/certis_docserver.sh`
-- `/tools/scripts/libra_scripts/certis_jitsiking.sh`
-- `/tools/scripts/libra_scripts/pfsense-import-certificate.php`
--->

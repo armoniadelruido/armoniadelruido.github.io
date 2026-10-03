@@ -53,14 +53,3 @@ mqsistart <BROKER>
 mqsistop <BROKER>
 mqsireportproperties <BROKER> -a
 ```
-
-<!--
-Fuentes consolidadas
-
-- `AC_nuevo_QM.txt`
-- `colasMQ.txt`
-- `colas_mq.txt`
-- `brokers.txt`
-- `nuevo_mq.txt`
-- `purge_colas.txt`
--->

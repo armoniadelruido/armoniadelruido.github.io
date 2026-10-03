@@ -96,26 +96,3 @@ serverStatus.sh -all
 stopServer.sh <SERVIDOR>
 startServer.sh <SERVIDOR>
 ```
-
-<!--
-Fuentes consolidadas
-
-- `tomcat 7_ciphers.txt`
-- `KeystoreTomcat.txt`
-- `Artic_Tomcat.txt`
-- `ciphers_Jboss.txt`
-- `jboss_secure_realm.txt`
-- `aliasJBOSS.txt`
-- `Intervencion_JBOSS.txt`
-- `controles_weblogic.txt`
-- `weblogic_wslt.txt`
-- `error_log_jboss.txt`
-- `was_assegurances.txt`
-- `new 7.txt`
-- `new 8.txt`
-- `new 23.txt`
-- `new 52.txt`
-- `new 55.txt`
-- `new 57.txt`
-- `new 77.txt`
--->

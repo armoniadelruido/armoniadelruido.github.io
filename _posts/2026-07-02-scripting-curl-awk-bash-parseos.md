@@ -108,33 +108,3 @@ main() {
 
 main "$@"
 ```
-
-<!--
-Fuentes consolidadas
-
-- `ansible.txt`
-- `awk_bbdd.txt`
-- `awakas.txt`
-- `regex.txt`
-- `VI_comands_regex.txt`
-- `parseo_archivos.txt`
-- `CURL.txt`
-- `Python.txt`
-- `POWERSHELL.txt`
-- `COMPILAR_DE_BASH.txt`
-- `script_curl_wsld.txt`
-- `script_https.txt`
-- `script_paths.txt`
-- `script_sftp_3_equipos.txt`
-- `script_2_cirro.txt`
-- `timestamps_scripts_ejemplo.txt`
-- `scripts_para_realizar_ejercicios.txt`
-- `/tools/scripts/parse_fichero/fileexit`
-- `/tools/scripts/parse_fichero/orifenfile`
-- `/tools/scripts/parse_fichero/prova.sh`
-- `/tools/scripts/parse_fichero/rr.sh`
-- `/tools/scripts/prueba_secuencia.sh`
-- `/tools/scripts/prueba_secuencia_v2.sh`
-- `/tools/scripts/scp_red.bash`
-- `/tools/scripts/dni.py`
--->

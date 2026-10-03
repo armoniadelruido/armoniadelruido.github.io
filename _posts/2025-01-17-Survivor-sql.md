@@ -191,13 +191,6 @@ DROP DATABASE nombre bbdd
 ```
 ## Consolidacion de apuntes SQL
 
-<!--
-Fuentes consolidadas
-
-- `sql_survivor.txt`
-- `postgress.txt`
--->
-
 ### PostgreSQL
 
 ```bash

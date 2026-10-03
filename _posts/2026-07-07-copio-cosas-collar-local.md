@@ -115,10 +115,3 @@ done
 | `for` sobre origenes | simplifica añadir o quitar carpetas |
 | comillas en rutas | soporta nombres con espacios o caracteres especiales |
 | log consistente | reduce redirecciones repetidas y facilita revisar errores |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/micron1`
-- `/tools/scripts/copio_cosas_collar_local.sh`
--->

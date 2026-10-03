@@ -41,13 +41,3 @@ make
 ## Trazabilidad
 
 Registrar siempre version, ticket, ruta de codigo y binario generado para mantener trazabilidad de la entrega.
-
-<!--
-Fuentes consolidadas
-
-- `subversion_things.txt`
-- `pvcs.txt`
-- `new 25.txt`
-- `new 45.txt`
-- `new 50.txt`
--->

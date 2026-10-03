@@ -37,12 +37,3 @@ aws ec2 describe-instances \
 ```bash
 /usr/lib/nagios/plugins/check_http -H <HOSTNAME> -S -u /health
 ```
-
-<!--
-Fuentes consolidadas
-
-- `aws_config.txt`
-- `nagios_aws.txt`
-- `inventario_nagios.txt`
-- `new 2.txt`
--->

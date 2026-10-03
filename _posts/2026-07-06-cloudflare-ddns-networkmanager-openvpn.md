@@ -81,12 +81,3 @@ for record in cloud docs meet vpn; do
     --data "{\"type\":\"A\",\"name\":\"${fqdn}\",\"content\":\"${ip_actual}\",\"ttl\":1,\"proxied\":true}"
 done
 ```
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/saco_ip_cloudflare.sh`
-- `/tools/scripts/saco_ip_cloudflare.sh.ORIG`
-- `/tools/scripts/saco_ip_carraca_cloudflare.sh`
-- `/tools/scripts/chuleta_api_ips`
--->

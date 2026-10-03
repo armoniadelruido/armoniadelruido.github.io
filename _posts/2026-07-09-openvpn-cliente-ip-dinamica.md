@@ -128,10 +128,3 @@ fi
 | `sed -i.bak` o copia previa | conserva perfil anterior si algo sale mal |
 | comillas en variables | soporta rutas con espacios y evita globbing accidental |
 | FQDN en vez de IP si es posible | elimina necesidad de reenviar perfil por cada cambio de IP |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/libra_scripts/open_vpn_clients.sh`
-- `/tools/scripts/libra_scripts/envia_cliente_openvpn.sh`
--->

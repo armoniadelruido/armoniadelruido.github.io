@@ -98,10 +98,3 @@ done
 | `-type f` | no borra directorios por accidente |
 | `-name '*.xml'` | limita la limpieza a backups pfSense |
 | `-print -delete` | deja evidencia de lo eliminado |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/pfsense/depura_ficheros.sh`
-- `/tools/scripts/pfsense/pfsense_backups_auto.sh`
--->

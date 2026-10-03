@@ -90,9 +90,3 @@ micron_nextcloud
 - Las tareas de backup y movimiento comparten el patron `logline()` para timestamp en logs.
 - `muevo_sqls.sh` debe ser seguro aunque el destino externo no monte: timeout en NFS, retencion de 15 dumps locales y 2 tar temporales.
 - Hay tareas comentadas que conviene mantener documentadas porque forman parte de la operativa historica.
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/nextcloud_scripts/micron_nextcloud`
--->

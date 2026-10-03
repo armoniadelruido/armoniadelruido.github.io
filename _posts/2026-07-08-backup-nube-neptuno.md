@@ -116,10 +116,3 @@ rsync -avh "$ORIGEN_NEXTCLOUD/" "$MOUNT_DESTINO/nextcloud/" >> "$LOG" 2>&1
 | `trap` para desmontar | evita mounts colgados |
 | variables origen/destino | aclara que se copia data hacia backup mensual |
 | log unico | evita pisar el log con redirecciones `>` intermedias |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/nextcloud_scripts/micron_nextcloud`
-- `/tools/scripts/nextcloud_scripts/backup_nube_neptuno.sh`
--->

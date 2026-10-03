@@ -319,13 +319,3 @@ Automatizaba claramente:
 - parcheo selectivo por severidad.
 
 La descarga y publicacion de paquetes quedaba cubierta por el repositorio local. La validacion existia de forma parcial, centrada en salida de YUM, logs y deteccion de reinicio pendiente.
-
-<!--
-Fuentes consolidadas
-
-- /home/alexaid/Documentos/wikis/Notepades/Circuito_actualizaciones.txt
-- /home/alexaid/Documentos/wikis/Notepades/repositorios_local.txt
-- /home/alexaid/Documentos/wikis/Notepades/Truesight.txt
-- /home/alexaid/Documentos/Notepades_REVISION/notepades/updates_redhat.txt
-- /media/site-web/armoniadelruido.github.io/_posts/2025-01-16-repo-local-redhat.md
--->

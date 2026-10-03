@@ -56,32 +56,3 @@ db2 "select tabschema, tabname, colname, maskname from syscat.columnmasks"
 ```bash
 db2 "runstats on table <ESQUEMA>.<TABLA> with distribution and detailed indexes all"
 ```
-
-<!--
-Fuentes consolidadas
-
-- `db2_comands.txt`
-- `EAHPC001_movimiento_tablas.txt`
-- `mover_tablas.txt`
-- `pagesize_tbs.txt`
-- `Mascaras.txt`
-- `grants.txt`
-- `grants_roles.txt`
-- `nomenclautra_tablas_tablespaces.txt`
-- `tabla_unavailable.txt`
-- `new 4 (2).txt`
-- `new 12.txt`
-- `new 16.txt`
-- `new 17.txt`
-- `new 21.txt`
-- `new 35.txt`
-- `new 36.txt`
-- `new 47.txt`
-- `new 51.txt`
-- `new 54.txt`
-- `new 69.txt`
-- `new 83.txt`
-- `new 86.txt`
-- `new 87.txt`
-- `new 89.txt`
--->

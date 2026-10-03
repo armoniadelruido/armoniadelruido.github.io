@@ -130,21 +130,3 @@ need curl
 need jq
 need rsync
 ```
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/prueba_secuencia.sh`
-- `/tools/scripts/prueba_secuencia_v2.sh`
-- `/tools/scripts/parse_fichero/prova.sh`
-- `/tools/scripts/parse_fichero/rr.sh`
-- `/tools/scripts/scp_red.bash`
-- `/tools/scripts/dni.py`
-- `/tools/scripts/clean-snap.sh`
-- `/tools/scripts/fix_modulo_propietario_fedora_warning.sh`
-- `/tools/scripts/liberamemoria.sh`
-- `/tools/scripts/scripts/libera_swap.sh`
-- `/tools/scripts/scripts/pasa_pass.sh`
-- `/tools/scripts/actualiza_firefox.sh`
-- `/tools/scripts/mata_firefox.sh`
--->

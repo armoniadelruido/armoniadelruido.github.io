@@ -65,22 +65,3 @@ exiftool -@ reglas.args fichero.jpg
 ## Vendor local
 
 Existe una copia local del proyecto bajo `/tools/scripts/exiftool/`. Para documentacion publica conviene conservar solo ejemplos de uso y referencias a ficheros de argumentos, no duplicar la documentacion completa del proyecto externo.
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/exiftool/README`
-- `/tools/scripts/exiftool/lib/Image/ExifTool/README`
-- `/tools/scripts/exiftool/blib/lib/Image/ExifTool/README`
-- `/tools/scripts/exiftool/arg_files/exif2iptc.args`
-- `/tools/scripts/exiftool/arg_files/xmp2gps.args`
-- `/tools/scripts/exiftool/arg_files/iptc2exif.args`
-- `/tools/scripts/exiftool/arg_files/exif2xmp.args`
-- `/tools/scripts/exiftool/arg_files/xmp2pdf.args`
-- `/tools/scripts/exiftool/arg_files/xmp2iptc.args`
-- `/tools/scripts/exiftool/arg_files/iptcCore.args`
-- `/tools/scripts/exiftool/arg_files/gps2xmp.args`
-- `/tools/scripts/exiftool/arg_files/pdf2xmp.args`
-- `/tools/scripts/exiftool/arg_files/xmp2exif.args`
-- `/tools/scripts/exiftool/arg_files/iptc2xmp.args`
--->

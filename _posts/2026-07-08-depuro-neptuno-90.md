@@ -116,10 +116,3 @@ find "$MOUNT_DESTINO/nextcloud/data" -type f -mtime +59 -print -delete >> "$LOG"
 | `-print -delete` | deja rastro de lo eliminado |
 | `trap` de desmontaje | controla el mount incluso si falla una limpieza |
 | retenciones explicitas | hace visible por que data usa 59 dias y otros 90 |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/nextcloud_scripts/depuro_neptuno_90.sh`
-- `/tools/scripts/nextcloud_scripts/muevo_filesystems_neptuno.sh`
--->

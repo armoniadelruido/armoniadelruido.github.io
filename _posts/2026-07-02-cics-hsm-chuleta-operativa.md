@@ -51,26 +51,3 @@ grep -i "error\|fail\|timeout" /var/log/<APP>/hsm.log
 ## Contingencia transaccional
 
 Documentar region, terminal, transaccion, hora de inicio, hora de fin y accion aplicada.
-
-<!--
-Fuentes consolidadas
-
-- `cics.txt`
-- `cics_db2_commands.txt`
-- `cics_transaccions.txt`
-- `alta_cics_user.txt`
-- `consola_cics.txt`
-- `console_msg.txt`
-- `revisar_terminales_cics.txt`
-- `error818.txt`
-- `TPVs_fraude.txt`
-- `hsm_logs.txt`
-- `hsm_mpago.txt`
-- `hsm_server.txt`
-- `incidencia_hsm.txt`
-- `HSM_MORA.txt`
-- `intervencion_cicsp6.txt`
-- `new 13.txt`
-- `new 31.txt`
-- `new 59.txt`
--->

@@ -42,9 +42,3 @@ ldapadd -x -D cn=admin,dc=example,dc=local -W -f usuarios.ldif
 getent passwd <USUARIO>
 id <USUARIO>
 ```
-
-<!--
-Fuentes consolidadas
-
-- `ldap`
--->

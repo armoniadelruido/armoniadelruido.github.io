@@ -57,29 +57,3 @@ Registrar siempre ventana, servidor origen, servidor destino, jobs afectados y p
 df -h
 /usr/lib/nagios/plugins/check_disk -w 20% -c 10% -p /ruta/ejemplo
 ```
-
-<!--
-Fuentes consolidadas
-
-- `CONTROL-M.txt`
-- `controlM.txt`
-- `CONTROL-M-Destartarlo.txt`
-- `CONTROL-M_ASVs.txt`
-- `ControlM_Migracion.txt`
-- `controlm_contingencia.txt`
-- `bladelogic.txt`
-- `Truesight.txt`
-- `Tarea_BMC_Agentes_root.txt`
-- `nagios_install.txt`
-- `nagios_weblogic.txt`
-- `control_certis_nagios.txt`
-- `Controls_Mati.txt`
-- `bsa_cosas.txt`
-- `mail_bmc.txt`
-- `inventario_nagios.txt`
-- `control_FS_nagios_aix.txt`
-- `nagios_aws.txt`
-- `new 2.txt`
-- `new 4.txt`
-- `new 39.txt`
--->

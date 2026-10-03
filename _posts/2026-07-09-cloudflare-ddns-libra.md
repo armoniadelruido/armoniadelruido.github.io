@@ -168,20 +168,3 @@ curl -fsS -X PUT "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_reco
 | token fuera del script | evita exponer credenciales Cloudflare |
 | `Authorization: Bearer` | permite usar token limitado en vez de key global |
 | `curl -fsS` y validacion de IDs | hace visibles errores de API antes del `PUT` |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/libra_scripts/revisa_ip_publica.sh`
-- `/tools/scripts/libra_scripts/cloudflare.sh`
-- `/tools/scripts/libra_scripts/cloudflare_web1.sh`
-- `/tools/scripts/libra_scripts/cloudflare_web2.sh`
-- `/tools/scripts/libra_scripts/cloudflare_web3.sh`
-- `/tools/scripts/libra_scripts/cloudflare_web4.sh`
-- `/tools/scripts/libra_scripts/cloudflare_web5.sh`
-- `/tools/scripts/libra_scripts/cloudflare_web6.sh`
-- `/tools/scripts/libra_scripts/cloudflare_web7.sh`
-- `/tools/scripts/libra_scripts/cloudflare_web8.sh`
-- `/tools/scripts/libra_scripts/cloudflare_web9.sh`
-- `/tools/scripts/libra_scripts/cloudflare_web10.sh`
--->

@@ -113,18 +113,3 @@ curl -k -X PUT \
 ## Script relacionado
 
 `proxmox_backup_collar.sh` usa `proxmox-backup-client` para respaldar varias rutas origen hacia un repositorio PBS y despues invoca una limpieza de memoria en el host remoto.
-
-<!--
-Fuentes consolidadas
-
-- `proxmox`
-- `Proxmox_HA.pdf`
-- `Guia-Cluster-Alta-disponibilidad.pdf`
-- `vdi_raspberry.txt`
-- `smallab-k8s-pve-guide-main.zip`
-- `/tools/scripts/proxmox_comands`
-- `/tools/scripts/proxmox_backup_collar.sh`
-- `/tools/scripts/proxmox_backup_filesystem_ORIG`
-- `/tools/scripts/proxmox-pve-config-backup.sh`
-- `/tools/scripts/edito_comment.sh`
--->

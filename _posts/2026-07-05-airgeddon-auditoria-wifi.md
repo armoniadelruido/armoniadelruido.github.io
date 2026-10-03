@@ -64,13 +64,3 @@ systemctl restart NetworkManager
 ## Vendor local
 
 Existe una copia local del proyecto bajo `/tools/scripts/airgeddon/`. Para documentacion publica es mejor referenciar comandos de uso y requisitos, no volcar codigo del proyecto externo.
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/airgeddon/README.md`
-- `/tools/scripts/airgeddon/CHANGELOG.md`
-- `/tools/scripts/airgeddon/CONTRIBUTING.md`
-- `/tools/scripts/airgeddon/CODE_OF_CONDUCT.md`
-- `/tools/scripts/airgeddon/LICENSE`
--->

@@ -79,12 +79,3 @@ apt update
 apt full-upgrade
 reboot
 ```
-
-<!--
-Fuentes consolidadas
-
-- `upgrades_distribucion_a_otra`
-- `problemas PUBKEYS`
-- `aptitude`
-- `Cosas_Debian_Wheeze.odt`
--->

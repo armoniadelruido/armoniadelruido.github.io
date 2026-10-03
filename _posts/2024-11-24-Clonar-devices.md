@@ -148,9 +148,3 @@ Restaurar imagen:
 ```bash
 dd if=/ruta/backup.img of=/dev/<DISCO_DESTINO> bs=4M status=progress conv=fsync
 ```
-
-<!--
-Fuentes consolidadas
-
-- `clonar_sd`
--->

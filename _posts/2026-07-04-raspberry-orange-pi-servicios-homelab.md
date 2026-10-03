@@ -77,25 +77,3 @@ chown -R www-data:www-data /var/www/html
 ## Preparar imagen reutilizable
 
 Cuando la base tenga paquetes, PHP, BBDD y webserver configurados, conviene clonar la SD para reutilizarla como plantilla.
-
-<!--
-Fuentes consolidadas
-
-- `clonar_sd`
-- `oragepipcplus`
-- `orangepipcplusV2`
-- `ubuntu_xenial_orangepi_plus2`
-- `fruitnanny`
-- `magicmirror`
-- `pihole`
-- `realtek_8812au`
-- `Raspberrys/discousbraspberry`
-- `Raspberrys/optimizar_pi4`
-- `Raspberrys/pi_server_lite_php7_msql`
-- `Raspberrys/raspberry_config_txt`
-- `Raspberrys/Raspberry_DNs`
-- `Raspberrys/warberry`
-- `Raspberrys/WIFIS_RASPBIANES`
-- `Raspberrys/wordpresspi`
-- `Raspberrys/wordpresspi_php7`
--->

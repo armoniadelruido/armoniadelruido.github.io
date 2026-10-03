@@ -134,25 +134,3 @@ Codigos HTTP:
 ```bash
 awk '{print $9}' /var/log/apache2/access.log | sort | uniq -c | sort -nr
 ```
-
-<!--
-Fuentes consolidadas
-
-- `apacheinstall.txt`
-- `README_apacheinstaler.txt`
-- `Apache_sec.txt`
-- `httpd_proxy_sample.txt`
-- `httpd_proxy_sample2.txt`
-- `Reverse_Proxy.txt`
-- `wildcard.txt`
-- `GI_apache_PRE.txt`
-- `salesforce.txt`
-- `new 7.txt`
-- `new 57.txt`
-- `new 64.txt`
-- `apache_install`
-- `apache-fpm`
-- `apache2_hardening`
-- `/tools/scripts/conexiones.sh`
-- `/tools/scripts/conexiones_ssl.sh`
--->

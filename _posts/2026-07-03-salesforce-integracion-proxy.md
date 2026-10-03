@@ -33,9 +33,3 @@ ProxyPass /salesforce/ https://<INSTANCIA>.my.salesforce.com/
 ProxyPassReverse /salesforce/ https://<INSTANCIA>.my.salesforce.com/
 RequestHeader set X-Forwarded-Proto "https"
 ```
-
-<!--
-Fuentes consolidadas
-
-- `salesforce.txt`
--->

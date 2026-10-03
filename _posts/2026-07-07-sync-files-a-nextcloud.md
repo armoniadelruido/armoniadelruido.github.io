@@ -109,11 +109,3 @@ ssh <USUARIO>@<HOSTNAME> 'sudo /ruta/origen/scripts/permisos_nextcloud.sh'
 ## Variante libra_scripts
 
 La variante `sync_files_a_nextcloud.sh` monta un destino Nextcloud, sincroniza `/ruta/origen/tools` hacia una carpeta remota y ejecuta un script remoto de permisos.
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/micron1`
-- `/tools/scripts/sync_files_a_nextcloud.sh`
-- `/tools/scripts/libra_scripts/sync_files_a_nextcloud.sh`
--->

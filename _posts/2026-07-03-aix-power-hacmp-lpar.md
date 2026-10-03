@@ -52,20 +52,3 @@ lparstat -i
 vmstat 2 10
 iostat 2 10
 ```
-
-<!--
-Fuentes consolidadas
-
-- `hacmp.txt`
-- `upgrades_aix.txt`
-- `errpt.txt`
-- `lpar2rrd`
-- `powerlabdes.txt`
-- `movimiento_p9.txt`
-- `control_FS_nagios_aix.txt`
-- `new 30.txt`
-- `new 32.txt`
-- `new 39.txt`
-- `new 40.txt`
-- `new 90.txt`
--->

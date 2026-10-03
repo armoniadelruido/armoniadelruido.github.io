@@ -83,14 +83,3 @@ tar tzf /ruta/destino/config/etc_YYYYMMDD.tar.gz >/dev/null
 | `backup_filesystem.sh` | copia de `/etc`, `/tools` y datos |
 | `proxmox_backup_collar.sh` | backup de configuracion/rutas a PBS |
 | `pfsense_backups_auto.sh` | export XML de pfSense |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/libra_scripts/me_traigo_la_config_de_libra.sh`
-- `/tools/scripts/libra_scripts/sync_files_a_nextcloud.sh`
-- `/tools/scripts/nextcloud_scripts/backup_filesystem.sh`
-- `/tools/scripts/proxmox_backup_collar.sh`
-- `/tools/scripts/proxmox-pve-config-backup.sh`
-- `/tools/scripts/pfsense/pfsense_backups_auto.sh`
--->

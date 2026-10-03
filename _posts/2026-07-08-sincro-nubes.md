@@ -129,11 +129,3 @@ ssh <USUARIO_ADMIN>@<HOSTNAME> "/ruta/origen/scripts/import_sql.sh"
 | variables para mount y NFS | hace explicito origen/destino |
 | `--exclude-from` conservado | mantiene tu logica de excluir rutas |
 | validacion previa de versiones | evita importar BBDD incompatible en destino |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/nextcloud_scripts/micron_nextcloud`
-- `/tools/scripts/nextcloud_scripts/sincro_nubes.sh`
-- `/tools/scripts/nextcloud_scripts/import_sql.sh`
--->

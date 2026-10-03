@@ -99,34 +99,3 @@ impdp <USUARIO>/<SECRETO>@<SERVICIO> \
   logfile=impdp_<ESQUEMA>.log \
   remap_schema=<ESQUEMA_ORIGEN>:<ESQUEMA_DESTINO>
 ```
-
-<!--
-Fuentes consolidadas
-
-- `Oracle.txt`
-- `oracle.txt`
-- `Oracle_GOL.txt`
-- `Listeners_oracle.txt`
-- `wallet_oracle.txt`
-- `export_oracle.txt`
-- `restore_oracle.txt`
-- `impor_exports.txt`
-- `recreacion Objetos  Oracle.txt`
-- `INVESDC12.txt`
-- `depurar invesdoc.txt`
-- `restores11g.txt`
-- `grants.txt`
-- `grants_roles.txt`
-- `new 26.txt`
-- `new 27.txt`
-- `new 38.txt`
-- `new 42.txt`
-- `new 44.txt`
-- `new 46.txt`
-- `new 48.txt`
-- `new 49.txt`
-- `new 58.txt`
-- `new 62.txt`
-- `new 70.txt`
-- `new 78.txt`
--->

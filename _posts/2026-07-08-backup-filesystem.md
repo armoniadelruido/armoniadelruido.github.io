@@ -137,10 +137,3 @@ rsync -avh /ruta/origen/nextcloud-data/ "$MOUNT_DESTINO/" >> "$LOG" 2>&1
 | variables para destinos | evita rutas repetidas y facilita migraciones |
 | elimina `sleep` como control | el estado del comando es mas fiable que esperar |
 | `rsync -avh` | simplifica flags manteniendo permisos y recursividad |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/nextcloud_scripts/micron_nextcloud`
-- `/tools/scripts/nextcloud_scripts/backup_filesystem.sh`
--->

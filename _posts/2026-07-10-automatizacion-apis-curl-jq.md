@@ -96,16 +96,3 @@ epoch="$(date -d "$normalizada" +%s)"
 | `cloudflare_*.sh` | actualizar registros DNS por API |
 | `libra_bot.sh` | enviar mensajes a Telegram |
 | `pfsense_backups_auto.sh` | automatizar descarga de backup pfSense |
-
-<!--
-Fuentes consolidadas
-
-- `/tools/scripts/jira_tool.sh`
-- `/tools/scripts/get_jsm_keys.sh`
-- `/tools/scripts/jira_comment_diff.sh`
-- `/tools/scripts/jira/get_jsm_keys.sh`
-- `/tools/scripts/jira/jira_tool.sh`
-- `/tools/scripts/libra_scripts/cloudflare_code.sh`
-- `/tools/scripts/libra_scripts/libra_bot.sh`
-- `/tools/scripts/pfsense/pfsense_backups_auto.sh`
--->
